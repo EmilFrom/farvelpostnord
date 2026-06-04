@@ -1,87 +1,66 @@
 // ============================================================
 // EDITABLE CONTENT
-// Edit this file to update everything on the page.
 // ============================================================
 
-// --- Types ---
-
-export type ReasonVariant = "cyan" | "navy" | "dark";
-
 export interface Reason {
-  eyebrow: string;
+  variant: "cyan" | "blue" | "navy";
+  anchor: "top" | "bottom";
   heading: string;
   body: string;
-  footer: string;
-  variant: ReasonVariant;
 }
 
 export interface StatItem {
   value: string;
   label: string;
-  footnote?: string;
 }
 
-// --- Hero ---
-
 export const hero = {
-  title: "Kom nu, PostNord.",
-  subtitle: "En kampagne for bedre postservice i Danmark.",
-  intro:
-    "Skriv din introduktionstekst her. Beskriv kampagnens formål, hvem der står bag, og hvad du vil opnå.",
+  title: "Kom Nu PostNord!",
+  body: `Der er alvorlige problemer med leveringen af breve og pakker hos PostNord.
+Det lader til at omfanget af problemet ikke er gået op for vores medier og politikere. Da medierne stort set ikke graver i det og politikerne hælder milliarder i PostNord, for at det blot skal overleve midlertidigt.
+Derfor er formålet med denne gruppe at blive så mange, at vi bliver umulige at overse. Dertil vil vi med jævne mellemrum henvende os til medierne, for at få bragt fokus på emnet. `,
 };
-
-// --- Three reasons ---
 
 export const reasons: Reason[] = [
   {
-    eyebrow: "Årsag 01",
-    heading: "Skriv din første årsag her",
-    body: "Uddybende forklaring. Brug fakta og konkrete eksempler som understøtter dit argument.",
-    footer: "Konklusion",
     variant: "cyan",
+    anchor: "bottom",
+    heading: "Din første årsag",
+    body: "Uddyb hvorfor det her er vigtigt. Brug konkrete eksempler og fakta, som du vil fremhæve.",
   },
   {
-    eyebrow: "Årsag 02",
-    heading: "Skriv din anden årsag her",
-    body: "Uddybende forklaring. Brug fakta og konkrete eksempler som understøtter dit argument.",
-    footer: "Konklusion",
+    variant: "blue",
+    anchor: "top",
+    heading: "Din anden årsag",
+    body: "Den midterste søjle vokser opad — god til det, der skal føles som hovedbudskabet.",
+  },
+  {
     variant: "navy",
-  },
-  {
-    eyebrow: "Årsag 03",
-    heading: "Skriv din tredje årsag her",
-    body: "Uddybende forklaring. Brug fakta og konkrete eksempler som understøtter dit argument.",
-    footer: "Konklusion",
-    variant: "dark",
+    anchor: "bottom",
+    heading: "Din tredje årsag",
+    body: "Uddybende tekst til den tredje søjle. Hold det kort og læsbart i pillen.",
   },
 ];
 
-// --- Statistics ---
-// Replace imageSrc with the path to your image in /public/, e.g. "/stats-photo.jpg"
-// Set imageAlt to a meaningful description.
-
 export const statsSection = {
-  heading: "[Statistik overskrift]",
-  imageSrc: "",          // e.g. "/stats-photo.jpg"
-  imageAlt: "[Billedtekst]",
-  note: "[Kildehenvisning og noter]",
+  heading: "Nøgletal",
+  imageSrc: "/images/pakkebud.jpg",
+  imageAlt: "Pakkebud",
   items: [
-    { value: "XX",  label: "[Label 1]" },
-    { value: "XX",  label: "[Label 2]" },
-    { value: "XX",  label: "[Label 3]" },
-    { value: "XX%", label: "[Label 4]" },
-    { value: "XX%", label: "[Label 5]" },
-    { value: "XX",  label: "[Label 6]" },
+    { value: "XX", label: "Eksempel 1" },
+    { value: "XX%", label: "Eksempel 2" },
+    { value: "XX", label: "Eksempel 3" },
   ] as StatItem[],
 };
 
-// --- Contact / About ---
-
 export const contactSection = {
-  heading: "[Din overskrift]",
+  heading: "Tak!",
   aboutLabel: "Om kampagnen",
-  about:
-    "[Skriv om kampagnen og hvem der står bag. Hvad er din baggrund og motivation?]",
-  email: "[din@email.dk]",
-  website: "[website.dk]",
+  lines: [
+    "Skriv hvem der står bag kampagnen.",
+    "Kontaktadresse eller by.",
+    "din@email.dk",
+    "website.dk",
+  ],
+  website: "website.dk",
 };

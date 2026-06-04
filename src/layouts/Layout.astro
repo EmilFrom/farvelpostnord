@@ -2,11 +2,18 @@
 interface Props {
   title: string;
   description?: string;
+  lang?: string;
 }
-const { title, description = "Satirisk borgerinitiativ om PostNords service i Danmark. Ikke tilknyttet PostNord AB." } = Astro.props;
+
+const {
+  title,
+  description = "Borgerinitiativ om bedre postservice i Danmark.",
+  lang = "da",
+} = Astro.props;
 ---
+
 <!doctype html>
-<html lang="da">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,27 +21,29 @@ const { title, description = "Satirisk borgerinitiativ om PostNords service i Da
     <title>{title}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
-      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-      :root {
-        --blue:  #9FCFFF;
-        --dark:  #111111;
-        --mid:   #555555;
-        --faint: #999999;
-        --rule:  #e5e5e5;
-        --white: #ffffff;
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
       }
       html {
-        font-family: 'Inter', system-ui, sans-serif;
-        font-size: 18px;
-        color: var(--dark);
-        background: var(--white);
+        font-family: "Inter", system-ui, sans-serif;
         -webkit-font-smoothing: antialiased;
       }
-      body { overflow-x: hidden; }
-      a { color: inherit; }
-      ::selection { background: var(--blue); }
+      body {
+        overflow-x: hidden;
+        background: #ffffff;
+      }
+      a {
+        color: inherit;
+      }
     </style>
   </head>
   <body>

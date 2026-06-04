@@ -1,358 +1,104 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import { hero, reasons, statsSection, contactSection } from '../data/content';
-
-const pillColors: Record<string, { bg: string; text: string }> = {
-  cyan: { bg: "#009FD4", text: "#ffffff" },
-  navy: { bg: "#1E5FA0", text: "#ffffff" },
-  dark: { bg: "#1B2A4A", text: "#ffffff" },
-};
+import Layout from "../layouts/Layout.astro";
+import { hero, reasons, statsSection, contactSection } from "../data/content";
+import "../styles/landing.css";
 ---
-<Layout title="Kom Nu PostNord">
 
-<!-- ===================== HERO ===================== -->
-<header class="hero">
-  <div class="hero-content">
-    <h1>{hero.title}</h1>
-    <p class="hero-subtitle">{hero.subtitle}</p>
-    <p class="hero-intro">{hero.intro}</p>
-  </div>
-  <div class="hero-arc" aria-hidden="true">
-    <svg viewBox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-      <ellipse cx="720" cy="90" rx="960" ry="90" fill="#ffffff"/>
-    </svg>
-  </div>
-</header>
-
-<!-- ===================== REASONS ===================== -->
-<section class="reasons-section">
-  <div class="pills">
-    {reasons.map((r) => {
-      const col = pillColors[r.variant];
-      return (
-        <div
-          class="pill"
-          style={`background:${col.bg};color:${col.text};`}
+<Layout title="Kom Nu PostNord" lang="da">
+  <div class="page">
+    <header class="hero">
+      <div class="hero-cyan">
+        <svg
+          class="hero-curve"
+          viewBox="0 0 1440 200"
+          xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="none"
+          aria-hidden="true"
         >
-          <span class="pill-eyebrow">{r.eyebrow}</span>
-          <h2 class="pill-heading">{r.heading}</h2>
-          <p class="pill-body">{r.body}</p>
-          <span class="pill-footer">{r.footer}</span>
+          <ellipse cx="720" cy="300" rx="820" ry="200" fill="var(--brand-cyan)" />
+        </svg>
+        <div class="hero-body">
+          <div class="hero-content">
+            <h1 class="hero-title">{hero.title}</h1>
+            <p class="hero-intro">{hero.body}</p>
+          </div>
         </div>
-      );
-    })}
-  </div>
-</section>
+      </div>
+    </header>
 
-<!-- ===================== STATISTICS ===================== -->
-<section class="stats-section">
-  <div class="stats-left">
-    <h2 class="stats-heading">{statsSection.heading}</h2>
-    <div class="stats-grid">
-      {statsSection.items.map((item, i) => (
-        <div class="stat-item" data-index={i}>
-          <div class="stat-value">{item.value}</div>
-          <div class="stat-label">{item.label}</div>
-          {item.footnote && <div class="stat-footnote">{item.footnote}</div>}
+    <section class="reasons-section" aria-label="Tre årsager">
+      <div class="reasons">
+        {
+          reasons.map((reason) => (
+            <article
+              class:list={[
+                "reason",
+                `reason--${reason.variant}`,
+                `reason--anchor-${reason.anchor}`,
+              ]}
+            >
+              <h2 class="reason-heading">{reason.heading}</h2>
+              <p class="reason-body">{reason.body}</p>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="stats-section" aria-labelledby="stats-heading">
+      <div class="stats-main">
+        <h2 id="stats-heading" class="stats-heading">
+          {statsSection.heading}
+        </h2>
+        <div class="stats-grid">
+          {
+            statsSection.items.map((item) => (
+              <div class="stat-item">
+                <div class="stat-value">{item.value}</div>
+                <div class="stat-label">{item.label}</div>
+              </div>
+            ))
+          }
         </div>
-      ))}
-    </div>
-    <p class="stats-note">{statsSection.note}</p>
-  </div>
-  <div class="stats-right">
-    {statsSection.imageSrc
-      ? <img src={statsSection.imageSrc} alt={statsSection.imageAlt} class="stats-img" />
-      : <div class="stats-placeholder" aria-label="Billedplaceholder"></div>
-    }
-  </div>
-</section>
+      </div>
+      <div class="stats-media">
+        <img src={statsSection.imageSrc} alt={statsSection.imageAlt} class="stats-img" loading="lazy" />
+      </div>
+    </section>
 
-<!-- ===================== CONTACT ===================== -->
-<section class="contact-section">
-  <div class="contact-circle" aria-hidden="true"></div>
-  <div class="contact-inner">
-    <h2 class="contact-heading">{contactSection.heading}</h2>
-    <div class="contact-details">
-      <p class="contact-about-label">{contactSection.aboutLabel}</p>
-      <p class="contact-about">{contactSection.about}</p>
-      <p class="contact-link"><a href={`mailto:${contactSection.email}`}>{contactSection.email}</a></p>
-      {contactSection.website && (
-        <p class="contact-link">
-          <a href={`https://${contactSection.website}`} target="_blank" rel="noopener noreferrer">
-            {contactSection.website}
-          </a>
-        </p>
-      )}
-    </div>
+    <section class="contact-section" aria-labelledby="contact-heading">
+      <div class="contact-circle" aria-hidden="true"></div>
+      <div class="contact-inner">
+        <h2 id="contact-heading" class="contact-heading">
+          {contactSection.heading}
+        </h2>
+        <div class="contact-details">
+          <p class="contact-about-label">{contactSection.aboutLabel}</p>
+          {
+            contactSection.lines.map((line) => {
+              const isWebsite = line === contactSection.website;
+              const isEmail = line.includes("@");
+              return (
+                <p class="contact-line">
+                  {isWebsite ? (
+                    <a
+                      href={`https://${line}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {line}
+                    </a>
+                  ) : isEmail ? (
+                    <a href={`mailto:${line}`}>{line}</a>
+                  ) : (
+                    line
+                  )}
+                </p>
+              );
+            })
+          }
+        </div>
+      </div>
+    </section>
   </div>
-</section>
-
-<!-- ===================== FOOTER ===================== -->
-<footer class="site-footer">
-  <p>© 2025 Kom Nu PostNord · "PostNord" er et varemærke tilhørende PostNord AB · Ikke tilknyttet PostNord AB eller PostNord Danmark A/S</p>
-</footer>
-
 </Layout>
-
-<style>
-/* ─── HERO ─── */
-.hero {
-  background: #009FD4;
-  padding: 72px 32px 0;
-}
-.hero-content {
-  max-width: 700px;
-  margin: 0 auto;
-  text-align: center;
-  padding-bottom: 56px;
-}
-.hero h1 {
-  font-size: clamp(2.4rem, 6vw, 4rem);
-  font-weight: 300;
-  letter-spacing: -0.02em;
-  color: #ffffff;
-  line-height: 1.08;
-  margin-bottom: 16px;
-}
-.hero-subtitle {
-  font-size: 1.1rem;
-  color: rgba(255,255,255,0.85);
-  margin-bottom: 24px;
-  font-weight: 400;
-}
-.hero-intro {
-  font-size: 0.95rem;
-  color: rgba(255,255,255,0.65);
-  line-height: 1.7;
-  max-width: 520px;
-  margin: 0 auto;
-}
-.hero-arc {
-  display: block;
-  line-height: 0;
-  margin-bottom: -1px;
-}
-.hero-arc svg {
-  display: block;
-  width: 100%;
-  height: 90px;
-}
-
-/* ─── REASONS ─── */
-.reasons-section {
-  background: #E0F3FA;
-  padding: 80px 40px;
-}
-.pills {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  max-width: 980px;
-  margin: 0 auto;
-}
-.pill {
-  border-radius: 1000px 1000px 16px 16px;
-  padding: 52px 28px 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 20px;
-  min-height: 420px;
-}
-.pill-eyebrow {
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  opacity: 0.75;
-}
-.pill-heading {
-  font-size: clamp(1.2rem, 2.2vw, 1.6rem);
-  font-weight: 700;
-  line-height: 1.2;
-  flex: 1;
-  display: flex;
-  align-items: center;
-}
-.pill-body {
-  font-size: 0.88rem;
-  line-height: 1.6;
-  opacity: 0.82;
-}
-.pill-footer {
-  font-size: 0.78rem;
-  font-weight: 500;
-  opacity: 0.65;
-  letter-spacing: 0.04em;
-}
-
-/* ─── STATISTICS ─── */
-.stats-section {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 480px;
-}
-.stats-left {
-  padding: 64px 56px;
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-}
-.stats-heading {
-  font-size: clamp(1.4rem, 3vw, 2rem);
-  font-weight: 700;
-  color: #009FD4;
-  line-height: 1.2;
-}
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0;
-}
-.stat-item {
-  padding: 20px 0;
-  border-top: 1px solid #e0e0e0;
-}
-/* New row every 3 items — remove top border for items 0,1,2 */
-.stat-item[data-index="0"],
-.stat-item[data-index="1"],
-.stat-item[data-index="2"] {
-  border-top: none;
-  padding-top: 0;
-}
-.stat-value {
-  font-size: clamp(1.8rem, 3vw, 2.8rem);
-  font-weight: 700;
-  color: #1B2A4A;
-  line-height: 1;
-  margin-bottom: 6px;
-}
-.stat-label {
-  font-size: 0.72rem;
-  color: #009FD4;
-  line-height: 1.4;
-}
-.stat-footnote {
-  font-size: 0.65rem;
-  color: #aaaaaa;
-  margin-top: 4px;
-}
-.stats-note {
-  font-size: 0.68rem;
-  color: #aaaaaa;
-  line-height: 1.6;
-  margin-top: auto;
-}
-.stats-right {
-  position: relative;
-}
-.stats-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-.stats-placeholder {
-  width: 100%;
-  height: 100%;
-  min-height: 480px;
-  background: #d9d9d9;
-}
-
-/* ─── CONTACT ─── */
-.contact-section {
-  background: #1B2A4A;
-  position: relative;
-  overflow: hidden;
-  padding: 80px 72px;
-  min-height: 480px;
-  display: flex;
-  align-items: flex-start;
-}
-.contact-circle {
-  position: absolute;
-  right: -140px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 640px;
-  height: 640px;
-  background: #009FD4;
-  border-radius: 50%;
-  pointer-events: none;
-}
-.contact-inner {
-  position: relative;
-  z-index: 1;
-  max-width: 480px;
-}
-.contact-heading {
-  font-size: clamp(2rem, 5vw, 3.2rem);
-  font-weight: 700;
-  color: #ffffff;
-  line-height: 1.05;
-  margin-bottom: 48px;
-}
-.contact-details {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-.contact-about-label {
-  font-size: 0.72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: #009FD4;
-}
-.contact-about {
-  font-size: 0.92rem;
-  color: rgba(255,255,255,0.72);
-  line-height: 1.7;
-  margin-bottom: 8px;
-}
-.contact-link a {
-  font-size: 0.92rem;
-  color: rgba(255,255,255,0.85);
-  text-decoration: none;
-  border-bottom: 1px solid rgba(255,255,255,0.25);
-  padding-bottom: 1px;
-  transition: border-color 0.15s;
-}
-.contact-link a:hover { border-color: rgba(255,255,255,0.7); }
-
-/* ─── FOOTER ─── */
-.site-footer {
-  border-top: 1px solid #e5e5e5;
-  padding: 20px 32px;
-  text-align: center;
-}
-.site-footer p {
-  font-size: 0.68rem;
-  color: #aaaaaa;
-  line-height: 1.6;
-}
-
-/* ─── RESPONSIVE ─── */
-@media (max-width: 900px) {
-  .hero { padding: 56px 24px 0; }
-  .pills {
-    grid-template-columns: 1fr;
-    max-width: 380px;
-  }
-  .pill { min-height: 320px; }
-  .stats-section { grid-template-columns: 1fr; }
-  .stats-left { padding: 48px 32px; }
-  .stats-placeholder { min-height: 280px; }
-  .contact-section { padding: 64px 40px; }
-  .contact-circle { width: 400px; height: 400px; right: -100px; }
-}
-
-@media (max-width: 600px) {
-  .reasons-section { padding: 56px 20px; }
-  .stats-grid { grid-template-columns: repeat(2, 1fr); }
-  .stat-item[data-index="2"] { border-top: 1px solid #e0e0e0; padding-top: 20px; }
-  .contact-section { padding: 56px 28px; }
-  .contact-circle { display: none; }
-}
-</style>
