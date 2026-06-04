@@ -1,749 +1,216 @@
 ---
 import Layout from '../layouts/Layout.astro';
 ---
-<Layout title="Kom Nu PostNord — Satirisk kampagneside">
+<Layout title="Kom Nu PostNord">
 
-<!-- ===================== SATIRE BANNER ===================== -->
-<div class="satire-bar">
-  ⚠️ DETTE ER SATIRE &nbsp;·&nbsp; IKKE TILKNYTTET POSTNORD AB &nbsp;·&nbsp; THIS IS PARODY ⚠️
-</div>
+<header class="site-header">
+  <h1>Kom nu, PostNord.</h1>
+  <p class="header-note">Dette er satire · Ikke tilknyttet PostNord AB</p>
+</header>
 
-<!-- ===================== NAV ===================== -->
-<nav class="nav">
-  <div class="nav-inner">
-    <a href="/" class="nav-logo">
-      <span class="logo-mark">📦</span>
-      <span class="logo-text">
-        <span class="logo-top">Kom Nu</span>
-        <span class="logo-bottom">PostNord*</span>
-      </span>
+<main>
+
+  <section class="block">
+    <h2>Problemet.</h2>
+
+    <ol class="reasons">
+      <li>
+        <span class="reason-heading">De erkender selv at 6,1 % af pakker fejler.</span>
+        <p>PostNords eget årsregnskab 2025 oplyser en leveringskvalitet på 93,9 %. Det lyder godt. Det betyder at næsten 17 millioner pakker om året ikke leveres korrekt — og det kalder PostNord en succes.</p>
+      </li>
+      <li>
+        <span class="reason-heading">Postmængden faldt 78 %. Priserne steg alligevel.</span>
+        <p>I 2009 behandlede PostNord 3.318 millioner breve. I 2025 var det 726 millioner. Netværket er halveret. Priserne er steget hvert eneste år. Driftsoverskuddet i 2025: 841 millioner SEK.</p>
+      </li>
+      <li>
+        <span class="reason-heading">De ejes af staten — og staten kigger den anden vej.</span>
+        <p>PostNord er halvt dansk statsejet. Politikerne har direkte indflydelse. Vi har bare ikke gjort det tydeligt nok for dem endnu — og det er det vi ændrer nu.</p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="block">
+    <h2>Hvad kan du gøre?</h2>
+    <p class="intro">Det vigtigste du kan gøre er at støtte borgerforslaget. Borgerforslag.dk er den officielle platform, hvor borgere kan tvinge sager på Folketingets dagsorden — hvis vi er nok.</p>
+    <a href="https://www.borgerforslag.dk" target="_blank" rel="noopener noreferrer" class="cta">
+      Støt borgerforslaget &rarr;
     </a>
-    <div class="nav-links">
-      <a href="#hvorfor">Hvorfor</a>
-      <a href="#hvad-kan-du">Gør noget</a>
-      <a href="#kontakt">Kontakt</a>
-      <a href="#om">Om</a>
-    </div>
-    <span class="nav-note">*Ikke PostNord AB</span>
-  </div>
-</nav>
+    <ul class="also">
+      <li><a href="https://www.ft.dk/da/medlemmer" target="_blank" rel="noopener noreferrer">Skriv til din MF på Folketing.dk</a></li>
+      <li><a href="https://dk.trustpilot.com/review/postnord.dk" target="_blank" rel="noopener noreferrer">Anmeld PostNord på Trustpilot</a></li>
+      <li><a href="https://www.forbrug.dk" target="_blank" rel="noopener noreferrer">Klage via forbrug.dk</a></li>
+      <li>Del <strong>#KomNuPostNord</strong> på sociale medier</li>
+    </ul>
+  </section>
 
-<!-- ===================== HERO ===================== -->
-<section class="hero">
-  <div class="hero-arc" aria-hidden="true"></div>
-  <div class="hero-inner">
-    <div class="parody-pill">PARODI · SATIRE · YTRINGSFRIHED</div>
-    <p class="hero-eyebrow">Den uafhængige borgerkampagne</p>
-    <h1 class="hero-title">Kom nu,<br/>PostNord.</h1>
-    <p class="hero-sub">Vi er trætte. Og vi har PostNords egne tal til at bevise det.</p>
-    <div class="hero-ctas">
-      <a href="#hvad-kan-du" class="btn btn-coral">Hvad kan jeg gøre? →</a>
-      <a href="#hvorfor" class="btn btn-ghost">Læs mere ↓</a>
-    </div>
-    <p class="hero-legal">⚠ Ingen forbindelse til PostNord AB eller PostNord Danmark A/S. Uafhængig satire.</p>
-  </div>
-  <div class="hero-stat-pill" aria-hidden="true">
-    <span class="stat-big">6,1%</span>
-    <span class="stat-label">af pakker leveres<br/>IKKE korrekt —<br/>ifølge PostNords<br/>egne tal*</span>
-    <span class="stat-source">*PostNord Annual Report 2025: 93,9% leveringskvalitet</span>
-  </div>
-</section>
+  <section class="block block-om">
+    <h2>Om siden.</h2>
+    <p>Kom Nu PostNord er et uafhængigt borgerinitiativ. Siden er satire og politisk kommentar beskyttet under ytringsfrihed. Kontakt: <a href="mailto:hej@komnupostnord.dk">hej@komnupostnord.dk</a></p>
+  </section>
 
-<!-- ===================== THEIR WORDS vs REALITY ===================== -->
-<div class="vs-strip">
-  <div class="vs-inner">
-    <div class="vs-col vs-them">
-      <p class="vs-tag">PostNord siger:</p>
-      <p class="vs-quote">"We move the Nordics forward"</p>
-      <p class="vs-quote">"Reliable, fast &amp; sustainable"</p>
-      <p class="vs-quote">"Convenient deliveries for consumers"</p>
-    </div>
-    <div class="vs-divider">vs.</div>
-    <div class="vs-col vs-us">
-      <p class="vs-tag">Danskerne oplever:</p>
-      <p class="vs-quote">Pakker markeret "leveret" — ingen pakke</p>
-      <p class="vs-quote">Dages ventetid i telefon­kø</p>
-      <p class="vs-quote">Prisstigninger hvert eneste år</p>
-    </div>
-  </div>
-</div>
+</main>
 
-<!-- ===================== HVORFOR ===================== -->
-<section id="hvorfor" class="section bg-white">
-  <div class="container">
-    <p class="eyebrow red">Hvorfor kampagnen?</p>
-    <h2 class="section-title">Vi skal gøre noget<br/>ved PostNord fordi...</h2>
-
-    <div class="cards">
-
-      <div class="card">
-        <div class="card-num">01</div>
-        <div class="card-icon">📦</div>
-        <h3>De erkender selv at 6,1% af pakker fejler</h3>
-        <p>PostNords eget årsregnskab 2025 fremhæver stolt en "93,9% leveringskvalitet". Det lyder godt — men det betyder at næsten <strong>17 millioner pakker om året</strong> ikke leveres korrekt. Det kalder PostNord en succes. Vi kalder det et problem.</p>
-        <div class="card-quote">
-          "Sporet som leveret kl. 14:32. Ingen pakke. Ingen nabo. Ingen svar fra kundeservice."
-          <span>— Rigtig dansker, 2025</span>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-num">02</div>
-        <div class="card-icon">📉</div>
-        <h3>Brevmængden faldt 78%. Priserne steg alligevel.</h3>
-        <p>I 2009 behandlede PostNord 3.318 millioner breve. I 2025 var det 726 millioner — et fald på <strong>78%</strong>. Netværket er skrumpet drastisk. Alligevel er porto og fragtpriser steget år efter år. Og de lavede 841 millioner SEK i driftsoverskud.</p>
-        <div class="card-quote">
-          "Færre breve. Færre ansatte. Færre postkontoret. Samme (eller højere) pris."
-          <span>— Frustreret erhvervsdrivende, Odense</span>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-num">03</div>
-        <div class="card-icon">📞</div>
-        <h3>Kundeservice er designet til at trætte dig ud</h3>
-        <p>Ring til PostNord. Vent 30+ minutter. Få at vide at du skal skrive en mail. Skriv mailen. Hør ikke tilbage inden for svarfristen. Skriv igen. Det er ikke tilfældigt — det er en strukturel barriere der holder klager nede. Vi er ikke imponerede.</p>
-        <div class="card-quote">
-          "Efter 3 klager og 6 uger opgav jeg. Det var sikkert meningen."
-          <span>— Maria K., Aarhus</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ===================== DATA STRIP ===================== -->
-<div class="data-strip">
-  <div class="data-inner">
-    <div class="data-item">
-      <span class="data-num">−78%</span>
-      <span class="data-desc">brevmængde siden 2009<br/><em>PostNords egne tal</em></span>
-    </div>
-    <div class="data-div"></div>
-    <div class="data-item">
-      <span class="data-num">841M</span>
-      <span class="data-desc">SEK driftsoverskud i 2025<br/><em>mens servicen falder</em></span>
-    </div>
-    <div class="data-div"></div>
-    <div class="data-item">
-      <span class="data-num">−37%</span>
-      <span class="data-desc">færre ansatte siden 2015<br/><em>fra 35.000 til 22.000</em></span>
-    </div>
-    <div class="data-div"></div>
-    <div class="data-item">
-      <span class="data-num">6,1%</span>
-      <span class="data-desc">pakker leveres ikke korrekt<br/><em>ifølge eget regnskab</em></span>
-    </div>
-  </div>
-  <p class="data-note">Alle tal er fra PostNords egne årsrapporter og præsentationer. Fortolkning og kontekst er vores.</p>
-</div>
-
-<!-- ===================== HVAD KAN DU ===================== -->
-<section id="hvad-kan-du" class="section bg-navy">
-  <div class="container">
-    <p class="eyebrow cyan">Tag stilling</p>
-    <h2 class="section-title light">Hvad kan DU gøre?</h2>
-    <p class="section-sub light">PostNord er halvt statsejet — af både den danske og svenske stat. Politikerne har noget at sige. Og politikerne lytter til vælgerne, når de hører fra dem.</p>
-
-    <div class="actions">
-
-      <div class="action">
-        <div class="action-n">1</div>
-        <h3>Skriv til din folkevalgte</h3>
-        <p>Find din lokale MF og fortæl dem om din oplevelse. Konkrete historier fra vælgere virker. Det tager 5 minutter.</p>
-        <a href="https://www.ft.dk/da/medlemmer" target="_blank" rel="noopener noreferrer" class="action-link">Folketing.dk — find din MF →</a>
-      </div>
-
-      <div class="action">
-        <div class="action-n">2</div>
-        <h3>Anmeld dem offentligt</h3>
-        <p>Skriv en ærlig anmeldelse på Trustpilot. Del din historie på sociale medier. Brug <strong>#KomNuPostNord</strong>. Synlighed tæller.</p>
-        <a href="https://dk.trustpilot.com/review/postnord.dk" target="_blank" rel="noopener noreferrer" class="action-link">Anmeld på Trustpilot →</a>
-      </div>
-
-      <div class="action">
-        <div class="action-n">3</div>
-        <h3>Klage til myndighederne</h3>
-        <p>Har du lidt et dokumenteret tab? Du kan klage til Forbrugerklagenævnet. PostNord er ikke hævet over loven — og de ved det godt.</p>
-        <a href="https://www.forbrug.dk/" target="_blank" rel="noopener noreferrer" class="action-link">Klage via forbrug.dk →</a>
-      </div>
-
-      <div class="action">
-        <div class="action-n">4</div>
-        <h3>Del denne side</h3>
-        <p>Send linket til en ven, en kollega, din moster der aldrig fik sin pakke. Jo flere vi er, jo sværere er det at ignorere os.</p>
-        <a href="https://twitter.com/intent/tweet?text=%23KomNuPostNord+%E2%80%94+satirisk+kampagne+mod+d%C3%A5rlig+postservice+i+Danmark" target="_blank" rel="noopener noreferrer" class="action-link">Del på sociale medier →</a>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ===================== KONTAKT ===================== -->
-<section id="kontakt" class="section bg-light">
-  <div class="container narrow">
-    <p class="eyebrow red">Kontakt</p>
-    <h2 class="section-title">Vil du bidrage?</h2>
-    <p class="section-sub">Har du dokumentation, en stærk historie, eller vil du hjælpe kampagnen? Vi er frivillige og svarer som vi kan.</p>
-    <a href="mailto:hej@komnupostnord.dk" class="btn btn-navy">Send os en mail →</a>
-    <p class="contact-fine">Vi er ikke advokater. Vi er bare danskere med for mange dårlige pakke­oplevelser og en internetforbindelse.</p>
-  </div>
-</section>
-
-<!-- ===================== OM ===================== -->
-<section id="om" class="section bg-white">
-  <div class="container narrow">
-    <p class="eyebrow red">Om kampagnen</p>
-    <h2 class="section-title">Hvem står bag?</h2>
-    <p class="section-sub">Denne side er lavet af Kom Nu PostNord — en uafhængig borgerinitiativ. Vi er ikke PostNord, ikke et advokatfirma, og ikke en lobbyorganisation. Vi er bare trætte.</p>
-    <blockquote class="om-legal">
-      Siden er satire og politisk kommentar beskyttet under dansk og europæisk ytringsfrihedslovgivning. Alle anekdoter og citater er satiriske fremstillinger af den almene brugeroplevelse — ikke navngivne enkeltpersoners udsagn. Alle statistikker er fra PostNords egne offentliggjorte rapporter; fortolkning og kontekstualisering er vores. Varemærket "PostNord" tilhører PostNord AB.
-    </blockquote>
-    <a href="#" class="btn btn-outline" id="org-link">Læs mere om organisationen bag →</a>
-  </div>
-</section>
-
-<!-- ===================== FOOTER ===================== -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-top">
-      <div class="footer-logo">📦 KOM NU POSTNORD</div>
-      <nav class="footer-nav">
-        <a href="#hvorfor">Hvorfor</a>
-        <a href="#hvad-kan-du">Gør noget</a>
-        <a href="#kontakt">Kontakt</a>
-        <a href="#om">Om</a>
-      </nav>
-    </div>
-    <div class="footer-disclaimer">
-      <strong>⚠️ JURIDISK ANSVARSFRASKRIVELSE:</strong> Dette website er IKKE tilknyttet PostNord AB, PostNord Danmark A/S, PostNord Sverige AB eller nogen af deres datterselskaber. Det er en uafhængig satirisk kampagneside beskyttet under ytringsfrihedslovgivningen. Varemærket "PostNord" tilhører PostNord AB. Statistikker er fra PostNords egne offentliggjorte rapporter. THIS WEBSITE IS NOT AFFILIATED WITH POSTNORD IN ANY WAY. It is independent satire and political commentary.
-    </div>
-    <div class="footer-bottom">
-      <span>© 2025 Kom Nu PostNord — Satire &amp; Parodi</span>
-      <span class="hashtag">#KomNuPostNord</span>
-    </div>
-  </div>
+<footer class="site-footer">
+  <p>© 2025 Kom Nu PostNord · Satire og politisk kommentar · “PostNord” er et varemærke tilhørende PostNord AB · Ikke tilknyttet PostNord AB eller PostNord Danmark A/S</p>
 </footer>
 
 </Layout>
 
 <style>
-/* ── SATIRE BAR ── */
-.satire-bar {
-  background: var(--red);
-  color: #fff;
+/* ─ HEADER ─ */
+.site-header {
+  background: #9FCFFF;
+  padding: 52px 32px 48px;
   text-align: center;
-  padding: 9px 16px;
-  font-family: 'Anton', sans-serif;
-  font-size: 0.78rem;
-  letter-spacing: 0.14em;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+}
+.site-header h1 {
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+.header-note {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.65);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
-/* ── NAV ── */
-.nav {
-  background: var(--navy);
-  position: sticky;
-  top: 37px;
-  z-index: 999;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.2);
-}
-.nav-inner {
-  max-width: 1100px;
+/* ─ MAIN ─ */
+main {
+  max-width: 660px;
   margin: 0 auto;
-  padding: 0 24px;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
+  padding: 80px 32px 40px;
 }
-.nav-logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
-  color: white;
-  flex-shrink: 0;
+
+/* ─ SECTIONS ─ */
+.block {
+  margin-bottom: 88px;
 }
-.logo-mark {
-  font-size: 1.5rem;
-  background: white;
-  border-radius: 8px;
-  padding: 3px 7px;
-  line-height: 1;
+.block h2 {
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e5e5e5;
 }
-.logo-text {
+
+/* ─ REASONS ─ */
+.reasons {
+  list-style: none;
+  counter-reset: reason;
   display: flex;
   flex-direction: column;
-  font-family: 'DM Sans', sans-serif;
-  line-height: 1.2;
+  gap: 44px;
 }
-.logo-top  { font-size: 0.65rem; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 0.12em; }
-.logo-bottom { font-size: 0.9rem; font-weight: 700; color: white; }
-.nav-links {
-  display: flex;
-  gap: 28px;
+.reasons li {
+  counter-increment: reason;
+  display: grid;
+  grid-template-columns: 2.4rem 1fr;
+  gap: 0 20px;
+  align-items: start;
 }
-.nav-links a {
-  color: rgba(255,255,255,0.75);
-  text-decoration: none;
-  font-size: 0.88rem;
+.reasons li::before {
+  content: counter(reason, decimal-leading-zero);
+  font-size: 0.75rem;
+  color: #aaaaaa;
   font-weight: 500;
-  transition: color 0.15s;
+  padding-top: 4px;
+  letter-spacing: 0.04em;
 }
-.nav-links a:hover { color: #fff; }
-.nav-note {
-  font-size: 0.6rem;
-  color: rgba(255,255,255,0.3);
-  font-style: italic;
-  flex-shrink: 0;
-}
-
-/* ── HERO ── */
-.hero {
-  background: var(--navy);
-  color: white;
-  min-height: 560px;
-  padding: 80px 24px 120px;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: center;
-  gap: 48px;
-  max-width: 100%;
-  position: relative;
-  overflow: hidden;
-}
-/* PostNord-style arc shape — parody of their big swooping arcs */
-.hero-arc {
-  position: absolute;
-  bottom: -120px;
-  left: -80px;
-  width: 600px;
-  height: 600px;
-  background: var(--cyan);
-  border-radius: 50%;
-  opacity: 0.12;
-  pointer-events: none;
-}
-.hero-inner { max-width: 640px; position: relative; z-index: 1; }
-/* PostNord-style pill — parody of their rounded pill shapes */
-.parody-pill {
-  display: inline-block;
-  background: var(--red);
-  color: white;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  padding: 6px 16px;
-  border-radius: 100px;
-  margin-bottom: 24px;
-}
-.hero-eyebrow {
-  font-size: 0.9rem;
-  color: var(--cyan);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: 12px;
-}
-.hero-title {
-  font-size: clamp(3.8rem, 9vw, 7.5rem);
-  line-height: 0.92;
-  margin-bottom: 28px;
-  color: white;
-}
-.hero-sub {
-  font-size: 1.15rem;
-  color: rgba(255,255,255,0.78);
-  line-height: 1.65;
-  max-width: 500px;
-  margin-bottom: 36px;
-}
-.hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 28px; }
-.hero-legal { font-size: 0.72rem; color: rgba(255,255,255,0.32); font-style: italic; }
-/* Stat pill — PostNord pill shape, parody */
-.hero-stat-pill {
-  background: var(--cyan);
-  border-radius: 200px;
-  padding: 36px 32px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 8px;
-  max-width: 220px;
-  position: relative;
-  z-index: 1;
-  flex-shrink: 0;
-}
-.stat-big {
-  font-family: 'Anton', sans-serif;
-  font-size: 3.2rem;
-  color: var(--navy);
-  line-height: 1;
-}
-.stat-label {
-  font-size: 0.82rem;
-  color: var(--navy);
-  line-height: 1.45;
-  font-weight: 600;
-}
-.stat-source {
-  font-size: 0.6rem;
-  color: rgba(27,42,74,0.55);
-  font-style: italic;
-  line-height: 1.4;
-}
-
-/* ── VS STRIP ── */
-.vs-strip {
-  background: var(--navy);
-  border-top: 4px solid var(--red);
-  padding: 0;
-}
-.vs-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: stretch;
-}
-.vs-col {
-  padding: 36px 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.vs-them { background: rgba(255,255,255,0.04); }
-.vs-us   { background: rgba(200,16,46,0.1); }
-.vs-tag {
-  font-size: 0.7rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  margin-bottom: 4px;
-}
-.vs-them .vs-tag { color: var(--coral); }
-.vs-us   .vs-tag { color: var(--red); }
-.vs-quote {
-  font-size: 0.95rem;
-  line-height: 1.5;
-  padding-left: 12px;
-  border-left: 2px solid;
-}
-.vs-them .vs-quote { color: rgba(255,255,255,0.65); border-color: var(--coral); font-style: italic; }
-.vs-us   .vs-quote { color: rgba(255,255,255,0.85); border-color: var(--red); }
-.vs-divider {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Anton', sans-serif;
-  font-size: 1.6rem;
-  color: var(--red);
-  padding: 0 24px;
-  background: rgba(255,255,255,0.03);
-  border-left: 1px solid rgba(255,255,255,0.08);
-  border-right: 1px solid rgba(255,255,255,0.08);
-}
-
-/* ── SHARED SECTION STYLES ── */
-.section { padding: 88px 24px; }
-.bg-white { background: var(--white); }
-.bg-navy  { background: var(--navy); }
-.bg-light { background: var(--light); }
-.container { max-width: 1100px; margin: 0 auto; }
-.narrow { max-width: 700px; }
-.eyebrow {
-  font-size: 0.72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  margin-bottom: 12px;
-}
-.eyebrow.red  { color: var(--red); }
-.eyebrow.cyan { color: var(--cyan); }
-.section-title {
-  font-size: clamp(2.2rem, 5vw, 3.4rem);
-  margin-bottom: 48px;
-  color: var(--text);
-}
-.section-title.light { color: white; }
-.section-sub {
+.reason-heading {
+  display: block;
   font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 10px;
+  color: #111111;
+}
+.reasons p {
+  font-size: 0.95rem;
   line-height: 1.72;
-  color: var(--muted);
-  margin-bottom: 48px;
-  max-width: 640px;
+  color: #555555;
+  grid-column: 2;
 }
-.section-sub.light { color: rgba(255,255,255,0.72); }
 
-/* ── REASON CARDS ── */
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 28px;
+/* ─ CTA ─ */
+.intro {
+  font-size: 1rem;
+  line-height: 1.72;
+  color: #555555;
+  margin-bottom: 32px;
 }
-.card {
-  background: var(--light);
-  border-radius: 20px;
-  padding: 36px 28px;
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.2s, box-shadow 0.2s;
-  border: 1px solid var(--border);
+.cta {
+  display: inline-block;
+  background: #9FCFFF;
+  color: #111111;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 14px 28px;
+  border-radius: 2px;
+  margin-bottom: 36px;
+  transition: background 0.15s;
 }
-.card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 4px;
-  background: var(--red);
-}
-.card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(27,42,74,0.1); }
-.card-num {
-  font-family: 'Anton', sans-serif;
-  font-size: 0.72rem;
-  letter-spacing: 0.24em;
-  color: var(--muted);
-  margin-bottom: 14px;
-}
-.card-icon { font-size: 2.2rem; margin-bottom: 16px; }
-.card h3 {
-  font-size: 1.2rem;
-  color: var(--navy);
-  margin-bottom: 14px;
-  line-height: 1.15;
-}
-.card p {
-  font-size: 0.93rem;
-  line-height: 1.7;
-  color: var(--text);
-  margin-bottom: 20px;
-}
-.card strong { color: var(--red); }
-.card-quote {
-  font-style: italic;
-  font-size: 0.83rem;
-  color: var(--muted);
-  border-left: 3px solid var(--coral);
-  padding-left: 14px;
-  line-height: 1.55;
-}
-.card-quote span { display: block; margin-top: 6px; font-size: 0.75rem; font-style: normal; font-weight: 600; }
-
-/* ── DATA STRIP ── */
-.data-strip {
-  background: var(--cyan);
-  padding: 52px 24px 40px;
-  position: relative;
-}
-.data-inner {
-  max-width: 1100px;
-  margin: 0 auto 12px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 0;
-}
-.data-item {
+.cta:hover { background: #82bff5; }
+.also {
+  list-style: none;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 0 44px;
-  gap: 10px;
+  gap: 12px;
 }
-.data-num {
-  font-family: 'Anton', sans-serif;
-  font-size: 3rem;
-  color: var(--navy);
-  line-height: 1;
+.also li {
+  font-size: 0.9rem;
+  color: #555555;
+  padding-left: 16px;
+  position: relative;
 }
-.data-desc {
-  font-size: 0.82rem;
-  color: rgba(27,42,74,0.75);
-  line-height: 1.5;
+.also li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: #aaaaaa;
 }
-.data-desc em { display: block; font-style: italic; font-size: 0.72rem; color: rgba(27,42,74,0.5); margin-top: 2px; }
-.data-div {
-  width: 1px;
-  height: 56px;
-  background: rgba(27,42,74,0.18);
-  align-self: center;
+.also a {
+  color: #111111;
+  text-underline-offset: 3px;
 }
-.data-note {
-  text-align: center;
-  font-size: 0.65rem;
-  color: rgba(27,42,74,0.45);
-  font-style: italic;
-  max-width: 600px;
-  margin: 0 auto;
-}
+.also a:hover { text-decoration: none; }
+.also strong { color: #111111; }
 
-/* ── ACTION CARDS ── */
-.actions {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
-}
-.action {
-  background: rgba(255,255,255,0.07);
-  border: 1px solid rgba(255,255,255,0.14);
-  border-radius: 20px;
-  padding: 28px 24px;
-  transition: background 0.2s;
-}
-.action:hover { background: rgba(255,255,255,0.12); }
-.action-n {
-  font-family: 'Anton', sans-serif;
-  font-size: 2.6rem;
-  color: var(--coral);
-  line-height: 1;
-  margin-bottom: 12px;
-}
-.action h3 {
-  font-size: 1rem;
-  color: white;
-  margin-bottom: 10px;
-  line-height: 1.2;
-}
-.action p {
-  font-size: 0.88rem;
-  color: rgba(255,255,255,0.68);
-  line-height: 1.62;
-  margin-bottom: 16px;
-}
-.action strong { color: var(--coral); }
-.action-link {
-  font-size: 0.88rem;
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  border-bottom: 1px solid rgba(255,255,255,0.3);
-  padding-bottom: 2px;
-  transition: border-color 0.15s;
-  display: inline-block;
-}
-.action-link:hover { border-color: white; }
-
-/* ── BUTTONS ── */
-.btn {
-  display: inline-block;
-  padding: 13px 26px;
-  border-radius: 100px;
-  font-weight: 700;
-  font-size: 0.95rem;
-  text-decoration: none;
-  transition: all 0.15s;
-  border: 2px solid transparent;
-  cursor: pointer;
-  font-family: 'DM Sans', sans-serif;
-}
-.btn-coral  { background: var(--coral); color: white; }
-.btn-coral:hover { background: #d94e3c; }
-.btn-ghost  { background: transparent; color: white; border-color: rgba(255,255,255,0.4); }
-.btn-ghost:hover { border-color: white; background: rgba(255,255,255,0.08); }
-.btn-navy   { background: var(--navy); color: white; }
-.btn-navy:hover { background: #111d33; }
-.btn-outline { display: inline-block; background: transparent; color: var(--navy); border: 2px solid var(--navy); padding: 11px 22px; border-radius: 100px; text-decoration: none; font-weight: 700; font-size: 0.95rem; transition: all 0.15s; font-family: 'DM Sans', sans-serif; }
-.btn-outline:hover { background: var(--navy); color: white; }
-
-/* ── KONTAKT / OM ── */
-.contact-fine {
-  margin-top: 20px;
-  font-size: 0.78rem;
-  color: var(--muted);
-  font-style: italic;
-}
-.om-legal {
-  font-size: 0.85rem;
+/* ─ OM ─ */
+.block-om h2 { font-size: 1.2rem; margin-bottom: 20px; }
+.block-om p {
+  font-size: 0.9rem;
   line-height: 1.72;
-  color: var(--muted);
-  border-left: 3px solid var(--border);
-  padding: 12px 0 12px 18px;
-  margin-bottom: 32px;
-  font-style: normal;
+  color: #555555;
+}
+.block-om a {
+  color: #111111;
+  text-underline-offset: 3px;
 }
 
-/* ── FOOTER ── */
-.footer {
-  background: var(--navy);
-  color: rgba(255,255,255,0.55);
-  padding: 52px 24px 32px;
+/* ─ FOOTER ─ */
+.site-footer {
+  border-top: 1px solid #e5e5e5;
+  padding: 24px 32px;
+  text-align: center;
 }
-.footer .container { max-width: 1100px; margin: 0 auto; }
-.footer-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 32px;
-  flex-wrap: wrap;
-  gap: 16px;
+.site-footer p {
+  font-size: 0.7rem;
+  color: #aaaaaa;
+  line-height: 1.6;
 }
-.footer-logo {
-  font-family: 'Anton', sans-serif;
-  font-size: 1rem;
-  letter-spacing: 0.08em;
-  color: white;
-}
-.footer-nav { display: flex; gap: 24px; flex-wrap: wrap; }
-.footer-nav a {
-  color: rgba(255,255,255,0.5);
-  text-decoration: none;
-  font-size: 0.85rem;
-  transition: color 0.15s;
-}
-.footer-nav a:hover { color: white; }
-.footer-disclaimer {
-  background: rgba(0,0,0,0.25);
-  border-radius: 12px;
-  padding: 20px 24px;
-  margin-bottom: 28px;
-  font-size: 0.75rem;
-  line-height: 1.65;
-  color: rgba(255,255,255,0.4);
-}
-.footer-disclaimer strong { color: rgba(255,255,255,0.7); display: block; margin-bottom: 8px; }
-.footer-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 8px;
-  font-size: 0.75rem;
-  border-top: 1px solid rgba(255,255,255,0.08);
-  padding-top: 20px;
-}
-.hashtag { color: white; font-family: 'Anton', sans-serif; letter-spacing: 0.06em; }
 
-/* ── RESPONSIVE ── */
-@media (max-width: 900px) {
-  .hero {
-    grid-template-columns: 1fr;
-    padding: 60px 20px 80px;
-  }
-  .hero-stat-pill { display: none; }
-  .nav-links { display: none; }
-  .nav-note  { display: none; }
-  .vs-inner {
-    grid-template-columns: 1fr;
-  }
-  .vs-divider {
-    padding: 16px;
-    border: none;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-  }
-  .data-inner { flex-direction: column; align-items: center; gap: 32px; }
-  .data-div { width: 60px; height: 1px; }
-  .footer-top { flex-direction: column; align-items: flex-start; }
-  .footer-bottom { flex-direction: column; align-items: flex-start; }
-  .section { padding: 64px 20px; }
+/* ─ RESPONSIVE ─ */
+@media (max-width: 600px) {
+  main { padding: 56px 24px 32px; }
+  .site-header { padding: 40px 24px 36px; }
+  .reasons li { grid-template-columns: 1fr; }
+  .reasons li::before { margin-bottom: 6px; }
+  .reasons p { grid-column: 1; }
 }
 </style>
