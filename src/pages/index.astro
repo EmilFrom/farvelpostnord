@@ -1,237 +1,358 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { hero, reasons, statsSection, contactSection } from '../data/content';
+
+const pillColors: Record<string, { bg: string; text: string }> = {
+  cyan: { bg: "#009FD4", text: "#ffffff" },
+  navy: { bg: "#1E5FA0", text: "#ffffff" },
+  dark: { bg: "#1B2A4A", text: "#ffffff" },
+};
 ---
 <Layout title="Kom Nu PostNord">
 
-<header class="site-header">
-  <div class="header-content">
-    <h1>Kom nu, PostNord.</h1>
-    <p class="header-note">Dette er satire · Ikke tilknyttet PostNord AB</p>
+<!-- ===================== HERO ===================== -->
+<header class="hero">
+  <div class="hero-content">
+    <h1>{hero.title}</h1>
+    <p class="hero-subtitle">{hero.subtitle}</p>
+    <p class="hero-intro">{hero.intro}</p>
   </div>
-  <div class="header-arc" aria-hidden="true">
+  <div class="hero-arc" aria-hidden="true">
     <svg viewBox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
       <ellipse cx="720" cy="90" rx="960" ry="90" fill="#ffffff"/>
     </svg>
   </div>
 </header>
 
-<main>
+<!-- ===================== REASONS ===================== -->
+<section class="reasons-section">
+  <div class="pills">
+    {reasons.map((r) => {
+      const col = pillColors[r.variant];
+      return (
+        <div
+          class="pill"
+          style={`background:${col.bg};color:${col.text};`}
+        >
+          <span class="pill-eyebrow">{r.eyebrow}</span>
+          <h2 class="pill-heading">{r.heading}</h2>
+          <p class="pill-body">{r.body}</p>
+          <span class="pill-footer">{r.footer}</span>
+        </div>
+      );
+    })}
+  </div>
+</section>
 
-  <section class="block">
-    <h2>Problemet.</h2>
+<!-- ===================== STATISTICS ===================== -->
+<section class="stats-section">
+  <div class="stats-left">
+    <h2 class="stats-heading">{statsSection.heading}</h2>
+    <div class="stats-grid">
+      {statsSection.items.map((item, i) => (
+        <div class="stat-item" data-index={i}>
+          <div class="stat-value">{item.value}</div>
+          <div class="stat-label">{item.label}</div>
+          {item.footnote && <div class="stat-footnote">{item.footnote}</div>}
+        </div>
+      ))}
+    </div>
+    <p class="stats-note">{statsSection.note}</p>
+  </div>
+  <div class="stats-right">
+    {statsSection.imageSrc
+      ? <img src={statsSection.imageSrc} alt={statsSection.imageAlt} class="stats-img" />
+      : <div class="stats-placeholder" aria-label="Billedplaceholder"></div>
+    }
+  </div>
+</section>
 
-    <ol class="reasons">
-      <li>
-        <span class="reason-heading">De erkender selv at 6,1 % af pakker fejler.</span>
-        <p>PostNords eget årsregnskab 2025 oplyser en leveringskvalitet på 93,9 %. Det lyder godt. Det betyder at næsten 17 millioner pakker om året ikke leveres korrekt — og det kalder PostNord en succes.</p>
-      </li>
-      <li>
-        <span class="reason-heading">Postmængden faldt 78 %. Priserne steg alligevel.</span>
-        <p>I 2009 behandlede PostNord 3.318 millioner breve. I 2025 var det 726 millioner. Netværket er halveret. Priserne er steget hvert eneste år. Driftsoverskuddet i 2025: 841 millioner SEK.</p>
-      </li>
-      <li>
-        <span class="reason-heading">De ejes af staten — og staten kigger den anden vej.</span>
-        <p>PostNord er halvt dansk statsejet. Politikerne har direkte indflydelse. Vi har bare ikke gjort det tydeligt nok for dem endnu — og det er det vi ændrer nu.</p>
-      </li>
-    </ol>
-  </section>
+<!-- ===================== CONTACT ===================== -->
+<section class="contact-section">
+  <div class="contact-circle" aria-hidden="true"></div>
+  <div class="contact-inner">
+    <h2 class="contact-heading">{contactSection.heading}</h2>
+    <div class="contact-details">
+      <p class="contact-about-label">{contactSection.aboutLabel}</p>
+      <p class="contact-about">{contactSection.about}</p>
+      <p class="contact-link"><a href={`mailto:${contactSection.email}`}>{contactSection.email}</a></p>
+      {contactSection.website && (
+        <p class="contact-link">
+          <a href={`https://${contactSection.website}`} target="_blank" rel="noopener noreferrer">
+            {contactSection.website}
+          </a>
+        </p>
+      )}
+    </div>
+  </div>
+</section>
 
-  <section class="block">
-    <h2>Hvad kan du gøre?</h2>
-    <p class="intro">Det vigtigste du kan gøre er at støtte borgerforslaget. Borgerforslag.dk er den officielle platform, hvor borgere kan tvinge sager på Folketingets dagsorden — hvis vi er nok.</p>
-    <a href="https://www.borgerforslag.dk" target="_blank" rel="noopener noreferrer" class="cta">
-      Støt borgerforslaget &rarr;
-    </a>
-    <ul class="also">
-      <li><a href="https://www.ft.dk/da/medlemmer" target="_blank" rel="noopener noreferrer">Skriv til din MF på Folketing.dk</a></li>
-      <li><a href="https://dk.trustpilot.com/review/postnord.dk" target="_blank" rel="noopener noreferrer">Anmeld PostNord på Trustpilot</a></li>
-      <li><a href="https://www.forbrug.dk" target="_blank" rel="noopener noreferrer">Klage via forbrug.dk</a></li>
-      <li>Del <strong>#KomNuPostNord</strong> på sociale medier</li>
-    </ul>
-  </section>
-
-  <section class="block block-om">
-    <h2>Om siden.</h2>
-    <p>Kom Nu PostNord er et uafhængigt borgerinitiativ. Siden er satire og politisk kommentar beskyttet under ytringsfrihed. Kontakt: <a href="mailto:hej@komnupostnord.dk">hej@komnupostnord.dk</a></p>
-  </section>
-
-</main>
-
+<!-- ===================== FOOTER ===================== -->
 <footer class="site-footer">
-  <p>© 2025 Kom Nu PostNord · Satire og politisk kommentar · “PostNord” er et varemærke tilhørende PostNord AB · Ikke tilknyttet PostNord AB eller PostNord Danmark A/S</p>
+  <p>© 2025 Kom Nu PostNord · "PostNord" er et varemærke tilhørende PostNord AB · Ikke tilknyttet PostNord AB eller PostNord Danmark A/S</p>
 </footer>
 
 </Layout>
 
 <style>
-/* ─ HEADER ─ */
-.site-header {
+/* ─── HERO ─── */
+.hero {
   background: #009FD4;
   padding: 72px 32px 0;
 }
-.header-content {
+.hero-content {
+  max-width: 700px;
+  margin: 0 auto;
   text-align: center;
   padding-bottom: 56px;
 }
-.site-header h1 {
+.hero h1 {
   font-size: clamp(2.4rem, 6vw, 4rem);
-  font-weight: 400;
-  letter-spacing: -0.01em;
+  font-weight: 300;
+  letter-spacing: -0.02em;
   color: #ffffff;
-  line-height: 1.1;
-  margin-bottom: 14px;
+  line-height: 1.08;
+  margin-bottom: 16px;
 }
-.header-note {
-  font-size: 0.68rem;
-  color: rgba(255,255,255,0.55);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+.hero-subtitle {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 24px;
+  font-weight: 400;
 }
-.header-arc {
+.hero-intro {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.7;
+  max-width: 520px;
+  margin: 0 auto;
+}
+.hero-arc {
   display: block;
   line-height: 0;
-  margin-bottom: -1px; /* prevent 1px gap */
+  margin-bottom: -1px;
 }
-.header-arc svg {
+.hero-arc svg {
   display: block;
   width: 100%;
   height: 90px;
 }
 
-/* ─ MAIN ─ */
-main {
-  max-width: 660px;
+/* ─── REASONS ─── */
+.reasons-section {
+  background: #E0F3FA;
+  padding: 80px 40px;
+}
+.pills {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 980px;
   margin: 0 auto;
-  padding: 80px 32px 40px;
 }
-
-/* ─ SECTIONS ─ */
-.block {
-  margin-bottom: 88px;
-}
-.block h2 {
-  font-size: clamp(1.6rem, 4vw, 2.2rem);
-  font-weight: 400;
-  letter-spacing: -0.01em;
-  margin-bottom: 40px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #e5e5e5;
-}
-
-/* ─ REASONS ─ */
-.reasons {
-  list-style: none;
-  counter-reset: reason;
+.pill {
+  border-radius: 1000px 1000px 16px 16px;
+  padding: 52px 28px 40px;
   display: flex;
   flex-direction: column;
-  gap: 44px;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  min-height: 420px;
 }
-.reasons li {
-  counter-increment: reason;
-  display: grid;
-  grid-template-columns: 2.4rem 1fr;
-  gap: 0 20px;
-  align-items: start;
-}
-.reasons li::before {
-  content: counter(reason, decimal-leading-zero);
+.pill-eyebrow {
   font-size: 0.75rem;
-  color: #aaaaaa;
   font-weight: 500;
-  padding-top: 4px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+.pill-heading {
+  font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+  font-weight: 700;
+  line-height: 1.2;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+.pill-body {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  opacity: 0.82;
+}
+.pill-footer {
+  font-size: 0.78rem;
+  font-weight: 500;
+  opacity: 0.65;
   letter-spacing: 0.04em;
 }
-.reason-heading {
-  display: block;
-  font-size: 1.05rem;
-  font-weight: 600;
-  line-height: 1.4;
-  margin-bottom: 10px;
-  color: #111111;
+
+/* ─── STATISTICS ─── */
+.stats-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 480px;
 }
-.reasons p {
-  font-size: 0.95rem;
-  line-height: 1.72;
-  color: #555555;
-  grid-column: 2;
+.stats-left {
+  padding: 64px 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.stats-heading {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 700;
+  color: #009FD4;
+  line-height: 1.2;
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+.stat-item {
+  padding: 20px 0;
+  border-top: 1px solid #e0e0e0;
+}
+/* New row every 3 items — remove top border for items 0,1,2 */
+.stat-item[data-index="0"],
+.stat-item[data-index="1"],
+.stat-item[data-index="2"] {
+  border-top: none;
+  padding-top: 0;
+}
+.stat-value {
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 700;
+  color: #1B2A4A;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.stat-label {
+  font-size: 0.72rem;
+  color: #009FD4;
+  line-height: 1.4;
+}
+.stat-footnote {
+  font-size: 0.65rem;
+  color: #aaaaaa;
+  margin-top: 4px;
+}
+.stats-note {
+  font-size: 0.68rem;
+  color: #aaaaaa;
+  line-height: 1.6;
+  margin-top: auto;
+}
+.stats-right {
+  position: relative;
+}
+.stats-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.stats-placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 480px;
+  background: #d9d9d9;
 }
 
-/* ─ CTA ─ */
-.intro {
-  font-size: 1rem;
-  line-height: 1.72;
-  color: #555555;
-  margin-bottom: 32px;
+/* ─── CONTACT ─── */
+.contact-section {
+  background: #1B2A4A;
+  position: relative;
+  overflow: hidden;
+  padding: 80px 72px;
+  min-height: 480px;
+  display: flex;
+  align-items: flex-start;
 }
-.cta {
-  display: inline-block;
+.contact-circle {
+  position: absolute;
+  right: -140px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 640px;
+  height: 640px;
   background: #009FD4;
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 1rem;
-  font-weight: 500;
-  padding: 14px 28px;
-  border-radius: 2px;
-  margin-bottom: 36px;
-  transition: background 0.15s;
+  border-radius: 50%;
+  pointer-events: none;
 }
-.cta:hover { background: #007faa; }
-.also {
-  list-style: none;
+.contact-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 480px;
+}
+.contact-heading {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.05;
+  margin-bottom: 48px;
+}
+.contact-details {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
-.also li {
-  font-size: 0.9rem;
-  color: #555555;
-  padding-left: 16px;
-  position: relative;
+.contact-about-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #009FD4;
 }
-.also li::before {
-  content: '—';
-  position: absolute;
-  left: 0;
-  color: #aaaaaa;
+.contact-about {
+  font-size: 0.92rem;
+  color: rgba(255,255,255,0.72);
+  line-height: 1.7;
+  margin-bottom: 8px;
 }
-.also a {
-  color: #111111;
-  text-underline-offset: 3px;
+.contact-link a {
+  font-size: 0.92rem;
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.25);
+  padding-bottom: 1px;
+  transition: border-color 0.15s;
 }
-.also a:hover { text-decoration: none; }
-.also strong { color: #111111; }
+.contact-link a:hover { border-color: rgba(255,255,255,0.7); }
 
-/* ─ OM ─ */
-.block-om h2 { font-size: 1.2rem; margin-bottom: 20px; }
-.block-om p {
-  font-size: 0.9rem;
-  line-height: 1.72;
-  color: #555555;
-}
-.block-om a {
-  color: #111111;
-  text-underline-offset: 3px;
-}
-
-/* ─ FOOTER ─ */
+/* ─── FOOTER ─── */
 .site-footer {
   border-top: 1px solid #e5e5e5;
-  padding: 24px 32px;
+  padding: 20px 32px;
   text-align: center;
 }
 .site-footer p {
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   color: #aaaaaa;
   line-height: 1.6;
 }
 
-/* ─ RESPONSIVE ─ */
+/* ─── RESPONSIVE ─── */
+@media (max-width: 900px) {
+  .hero { padding: 56px 24px 0; }
+  .pills {
+    grid-template-columns: 1fr;
+    max-width: 380px;
+  }
+  .pill { min-height: 320px; }
+  .stats-section { grid-template-columns: 1fr; }
+  .stats-left { padding: 48px 32px; }
+  .stats-placeholder { min-height: 280px; }
+  .contact-section { padding: 64px 40px; }
+  .contact-circle { width: 400px; height: 400px; right: -100px; }
+}
+
 @media (max-width: 600px) {
-  .site-header { padding: 48px 24px 0; }
-  .header-content { padding-bottom: 40px; }
-  main { padding: 56px 24px 32px; }
-  .reasons li { grid-template-columns: 1fr; }
-  .reasons li::before { margin-bottom: 6px; }
-  .reasons p { grid-column: 1; }
+  .reasons-section { padding: 56px 20px; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .stat-item[data-index="2"] { border-top: 1px solid #e0e0e0; padding-top: 20px; }
+  .contact-section { padding: 56px 28px; }
+  .contact-circle { display: none; }
 }
 </style>
