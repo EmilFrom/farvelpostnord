@@ -1,0 +1,57 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+const { title, description = "En satirisk kampagneside om PostNords (mis)service i Danmark. DETTE ER SATIRE — ikke tilknyttet PostNord AB." } = Astro.props;
+---
+<!doctype html>
+<html lang="da">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap" rel="stylesheet" />
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      :root {
+        --navy:      #1B2A4A;
+        --cyan:      #009FD4;
+        --cyan-dark: #007BAA;
+        --coral:     #EF6556;
+        --light:     #E8F6FC;
+        --red:       #C8102E;
+        --white:     #ffffff;
+        --text:      #1B2A4A;
+        --muted:     #4a637a;
+        --border:    rgba(27,42,74,0.12);
+      }
+      html {
+        font-family: 'DM Sans', sans-serif;
+        font-size: 16px;
+        color: var(--text);
+        background: var(--white);
+        scroll-behavior: smooth;
+      }
+      body { overflow-x: hidden; }
+      h1, h2, h3, h4 {
+        font-family: 'Anton', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+        line-height: 1.0;
+      }
+      a { color: inherit; }
+      img { max-width: 100%; display: block; }
+      ::selection { background: var(--coral); color: white; }
+      ::-webkit-scrollbar { width: 6px; }
+      ::-webkit-scrollbar-track { background: var(--light); }
+      ::-webkit-scrollbar-thumb { background: var(--cyan); border-radius: 3px; }
+    </style>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
