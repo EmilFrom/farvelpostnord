@@ -44,7 +44,7 @@ export const reasons: Reason[] = [
 
 export const statsSection = {
   heading: "Nøgletal",
-  imageSrc: "/images/pakkebud.jpg",
+  imageSrc: "/pakkebud.jpg",
   imageAlt: "Pakkebud",
   items: [
     { value: "XX", label: "Eksempel 1" },
