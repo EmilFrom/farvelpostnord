@@ -34,19 +34,19 @@ export const reasons: Reason[] = [
     variant: "cyan",
     anchor: "bottom",
     heading: "Utilregnelig levering",
-    body: "Uddyb hvorfor det her er vigtigt. Brug konkrete eksempler og fakta, som du vil fremhæve.",
+    body: "I den nuværende data fra spørgeskemaet indeholder 80% af svarene klager over forkert levering, forsinket levering eller ødelagte pakker.",
   },
   {
     variant: "blue",
     anchor: "top",
     heading: "Elendig kundeservice",
-    body: "Den midterste søjle vokser opad — god til det, der skal føles som hovedbudskabet.",
+    body: "Folk i gruppen beskriver alle, at når der opstår problemer, så kan kundeservice ikke hjælpe med noget som helst. Sammenlignet med GLS, der altid er nemme at få fat i og faktisk kan hjælpe.",
   },
   {
     variant: "navy",
     anchor: "bottom",
     heading: "Dyrt",
-    body: "Uddybende tekst til den tredje søjle. Hold det kort og læsbart i pillen.",
+    body: "PostNord koster 25% mere end konkurrenterne for almindelig pakkepost. Det er flere penge for en ringere service.",
   },
 ];
 
