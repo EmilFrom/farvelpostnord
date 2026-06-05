@@ -14,33 +14,92 @@ export interface StatItem {
   label: string;
 }
 
+export interface CaseScreenshot {
+  src: string;
+  alt: string;
+}
+
 export const hero = {
   title: "Kom Nu PostNord!",
-  body: `Der er alvorlige problemer med leveringen af breve og pakker hos PostNord.
-Det lader til at omfanget af problemet ikke er gået op for vores medier og politikere. Da medierne stort set ikke graver i det og politikerne hælder milliarder i PostNord, for at det blot skal overleve midlertidigt.
-Derfor er formålet med denne gruppe at blive så mange, at vi bliver umulige at overse. Dertil vil vi med jævne mellemrum henvende os til medierne, for at få bragt fokus på emnet. `,
+  body: (
+    'Facebook-gruppen "Kom Nu PostNord" vidner om et PostNord, der er ude af stand til at ' +
+    'levere pakker eller kommunikere med sine kunder. PostNord modtog ifbm. brevforretningen ' +
+    '600 millioner kroner som kompensation. Jeg synes, danskerne skal kunne mærke det ' +
+    'afsindigt store beløb. Men det kan man bare ikke lige nu, hvor pakker ofte er forsinkede, ' +
+    'beskadigede eller aldrig dukker op. Og kundeservice er aldrig til at komme i kontakt med, ' +
+    'hvor man skal tvinges gennem en ChatBot for at vente flere timer på et menneske, ' +
+    'der aldrig kan hjælpe. Den danske stat ejer 40% af PostNord gennem transportministeriet. ' +
+    'Enten skal PostNord strammes op og blive den bedste pakkeservice i Danmark eller også ' +
+    'skal det sælges så hurtigt som muligt.'
+  ),
 };
 
 export const reasons: Reason[] = [
   {
     variant: "cyan",
     anchor: "bottom",
-    heading: "Din første årsag",
+    heading: "Utilregnelig levering",
     body: "Uddyb hvorfor det her er vigtigt. Brug konkrete eksempler og fakta, som du vil fremhæve.",
   },
   {
     variant: "blue",
     anchor: "top",
-    heading: "Din anden årsag",
+    heading: "Elendig kundeservice",
     body: "Den midterste søjle vokser opad — god til det, der skal føles som hovedbudskabet.",
   },
   {
     variant: "navy",
     anchor: "bottom",
-    heading: "Din tredje årsag",
+    heading: "Dyrt",
     body: "Uddybende tekst til den tredje søjle. Hold det kort og læsbart i pillen.",
   },
 ];
+
+export const casesSection = {
+  heading: "Virkelige oplevelser",
+  /** How many stories to show at once (first N in items). */
+  visibleCount: 3,
+  items: [
+  {
+    src: "/Screenshot_20260605_084710.png",
+    alt: "Opslag om at chauffoeren ikke ringede paa doeren",
+  },
+  {
+    src: "/Screenshot_20260605_085432.png",
+    alt: "Opslag om lang leveringstid mellem Braendby og Amager",
+  },
+  {
+    src: "/Screenshot_20260605_084808.png",
+    alt: "Opslag om manglende kontaktmuligheder hos PostNord",
+  },
+  {
+    src: "/Screenshot_20260605_085602.png",
+    alt: "Lang historik om pakke sendt rundt i flere byer",
+  },
+  {
+    src: "/Screenshot_20260605_085650.png",
+    alt: "Eksempel paa ekstra dokumentation fra brugeroplevelse",
+  },
+  ] as CaseScreenshot[],
+};
+
+export const mediaSection = {
+  heading: "PostNord i medierne",
+  items: [
+    {
+      src: "/Tvsyd.png",
+      alt: "TV SYD: Flere kritiserer PostNord – må hente pakker langt fra bopælen",
+    },
+    {
+      src: "/kosmopol.png",
+      alt: "TV2 Kosmopol: Jens' pakke endte 47 km fra målet",
+    },
+    {
+      src: "/mediawatch.png",
+      alt: "Mediawatch: Flertal af danskerne vil sælge PostNord",
+    },
+  ] as CaseScreenshot[],
+};
 
 export const statsSection = {
   heading: "Nøgletal",

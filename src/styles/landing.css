@@ -64,6 +64,97 @@
   white-space: pre-line;
 }
 
+/* ─── Cases ─── */
+.cases-section {
+  background: var(--brand-sky);
+  padding: clamp(1.5rem, 4vw, 2.5rem) clamp(1.25rem, 4vw, 3.5rem)
+    clamp(2.5rem, 6vw, 4rem);
+}
+
+.cases-wrap {
+  max-width: 72rem;
+  margin: 0 auto;
+}
+
+.cases-heading {
+  font-size: clamp(1.25rem, 2.2vw, 1.8rem);
+  font-weight: 700;
+  color: var(--brand-blue);
+  margin: 0 0 clamp(1rem, 2.5vw, 1.6rem);
+}
+
+.cases-grid {
+  column-count: 3;
+  column-gap: clamp(0.9rem, 2vw, 1.4rem);
+}
+
+.case-card {
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 clamp(0.9rem, 2vw, 1.4rem);
+  break-inside: avoid;
+  background: var(--brand-white);
+  border: 1px solid #d9e5ec;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgba(10, 31, 68, 0.09);
+  content-visibility: auto;
+  contain-intrinsic-size: 540px;
+}
+
+.case-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  background: #f5f7fa;
+}
+
+/* ─── Media ─── */
+.media-section {
+  background: var(--brand-white);
+  padding: clamp(2rem, 5vw, 3.5rem) clamp(1.25rem, 4vw, 3.5rem)
+    clamp(2.5rem, 6vw, 4rem);
+  border-top: 1px solid #e8eef2;
+}
+
+.media-wrap {
+  max-width: 72rem;
+  margin: 0 auto;
+}
+
+.media-heading {
+  font-size: clamp(1.25rem, 2.2vw, 1.8rem);
+  font-weight: 700;
+  color: var(--brand-blue);
+  margin: 0 0 clamp(1rem, 2.5vw, 1.6rem);
+}
+
+.media-grid {
+  column-count: 3;
+  column-gap: clamp(0.9rem, 2vw, 1.4rem);
+}
+
+.media-card {
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 clamp(0.9rem, 2vw, 1.4rem);
+  break-inside: avoid;
+  background: var(--brand-white);
+  border: 1px solid #e0e6eb;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(10, 31, 68, 0.06);
+  content-visibility: auto;
+  contain-intrinsic-size: 540px;
+}
+
+.media-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  background: #f5f7fa;
+}
+
 /* ─── Reasons (pills) ─── */
 .reasons-section {
   background: var(--brand-sky);
@@ -248,6 +339,11 @@
 
 /* ─── Responsive ─── */
 @media (max-width: 900px) {
+  .cases-grid,
+  .media-grid {
+    column-count: 2;
+  }
+
   .reasons {
     grid-template-columns: 1fr;
     max-width: 20rem;
@@ -278,6 +374,11 @@
 }
 
 @media (max-width: 600px) {
+  .cases-grid,
+  .media-grid {
+    column-count: 1;
+  }
+
   .stats-grid {
     grid-template-columns: repeat(3, 1fr);
     gap: 0.5rem;
