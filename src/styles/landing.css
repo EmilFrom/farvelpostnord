@@ -221,6 +221,53 @@
   opacity: 0.9;
 }
 
+/* ─── Organization + forms ─── */
+.org-section {
+  background: var(--brand-white);
+  padding: clamp(2.5rem, 6vw, 4rem) clamp(1.25rem, 4vw, 3.5rem);
+  border-top: 1px solid #e8eef2;
+}
+
+.org-wrap {
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+.org-heading {
+  font-size: clamp(1.25rem, 2.2vw, 1.8rem);
+  font-weight: 700;
+  color: var(--brand-cyan);
+  margin: 0 0 clamp(1rem, 2vw, 1.5rem);
+}
+
+.org-body {
+  font-size: clamp(0.95rem, 1.6vw, 1.05rem);
+  line-height: 1.7;
+  color: var(--brand-ink);
+  margin: 0 0 clamp(2rem, 4vw, 3rem);
+  white-space: pre-line;
+}
+
+.org-forms {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2rem, 4vw, 3rem);
+}
+
+.org-form-label {
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  font-weight: 600;
+  color: var(--brand-blue);
+  margin: 0 0 0.75rem;
+}
+
+.org-form iframe {
+  display: block;
+  border: 1px solid #e0e6eb;
+  border-radius: 0.75rem;
+  background: #f5f7fa;
+}
+
 /* ─── Statistics (single row) ─── */
 .stats-section {
   display: grid;

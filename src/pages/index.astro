@@ -1,10 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import ImageLightbox from "../components/ImageLightbox.astro";
+import LightboxImage from "../components/LightboxImage.astro";
 import {
   hero,
   casesSection,
   mediaSection,
   reasons,
+  organizationSection,
   statsSection,
   contactSection,
 } from "../data/content";
@@ -43,12 +46,10 @@ const visibleCases = casesSection.items.slice(0, casesSection.visibleCount);
         <div class="cases-grid">
           {visibleCases.map((item) => (
             <article class="case-card">
-              <img
+              <LightboxImage
                 src={item.src}
                 alt={item.alt}
-                class="case-image"
-                loading="lazy"
-                decoding="async"
+                imageClass="case-image"
               />
             </article>
           ))}
@@ -64,12 +65,10 @@ const visibleCases = casesSection.items.slice(0, casesSection.visibleCount);
         <div class="media-grid">
           {mediaSection.items.map((item) => (
             <article class="media-card">
-              <img
+              <LightboxImage
                 src={item.src}
                 alt={item.alt}
-                class="media-image"
-                loading="lazy"
-                decoding="async"
+                imageClass="media-image"
               />
             </article>
           ))}
@@ -96,26 +95,64 @@ const visibleCases = casesSection.items.slice(0, casesSection.visibleCount);
       </div>
     </section>
 
-    <section class="stats-section" aria-labelledby="stats-heading">
-      <div class="stats-main">
-        <h2 id="stats-heading" class="stats-heading">
-          {statsSection.heading}
+    <section class="org-section" aria-labelledby="org-heading">
+      <div class="org-wrap">
+        <h2 id="org-heading" class="org-heading">
+          {organizationSection.heading}
         </h2>
-        <div class="stats-grid">
+        <p class="org-body">{organizationSection.body}</p>
+        <div class="org-forms">
           {
-            statsSection.items.map((item) => (
-              <div class="stat-item">
-                <div class="stat-value">{item.value}</div>
-                <div class="stat-label">{item.label}</div>
+            organizationSection.forms.map((form) => (
+              <div class="org-form">
+                <h3 class="org-form-label">{form.label}</h3>
+                <iframe
+                  data-tally-src={form.embedUrl}
+                  loading="lazy"
+                  width="100%"
+                  height="420"
+                  frameborder="0"
+                  marginheight="0"
+                  marginwidth="0"
+                  title={form.label}
+                />
               </div>
             ))
           }
         </div>
       </div>
-      <div class="stats-media">
-        <img src={statsSection.imageSrc} alt={statsSection.imageAlt} class="stats-img" loading="lazy" />
-      </div>
     </section>
+    <script is:inline async src="https://tally.so/widgets/embed.js"></script>
+
+    {
+      statsSection.enabled && (
+        <section class="stats-section" aria-labelledby="stats-heading">
+          <div class="stats-main">
+            <h2 id="stats-heading" class="stats-heading">
+              {statsSection.heading}
+            </h2>
+            <div class="stats-grid">
+              {statsSection.items.map((item) => (
+                <div class="stat-item">
+                  <div class="stat-value">{item.value}</div>
+                  <div class="stat-label">{item.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div class="stats-media">
+            <img
+              src={statsSection.imageSrc}
+              alt={statsSection.imageAlt}
+              class="stats-img"
+              loading="lazy"
+            />
+          </div>
+        </section>
+      )
+    }
+
+    <ImageLightbox />
 
     <section class="contact-section" aria-labelledby="contact-heading">
       <div class="contact-circle" aria-hidden="true"></div>

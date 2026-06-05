@@ -1,0 +1,42 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+  imageClass?: string;
+}
+
+const { src, alt, imageClass } = Astro.props;
+---
+
+<button
+  type="button"
+  class="lightbox-trigger"
+  data-lightbox-src={src}
+  data-lightbox-alt={alt}
+  aria-label={`Vis billede i fuld størrelse: ${alt}`}
+>
+  <img
+    src={src}
+    alt={alt}
+    class:list={[imageClass]}
+    loading="lazy"
+    decoding="async"
+  />
+</button>
+
+<style>
+  .lightbox-trigger {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: zoom-in;
+    line-height: 0;
+  }
+
+  .lightbox-trigger:focus-visible {
+    outline: 2px solid var(--brand-cyan, #009fda);
+    outline-offset: 2px;
+  }
+</style>

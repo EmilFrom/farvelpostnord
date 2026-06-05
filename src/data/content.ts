@@ -23,12 +23,7 @@ export const hero = {
   title: "Kom Nu PostNord!",
   body: (
     'Facebook-gruppen "Kom Nu PostNord" vidner om et PostNord, der er ude af stand til at ' +
-    'levere pakker eller kommunikere med sine kunder. PostNord modtog ifbm. brevforretningen ' +
-    '600 millioner kroner som kompensation. Jeg synes, danskerne skal kunne mærke det ' +
-    'afsindigt store beløb. Men det kan man bare ikke lige nu, hvor pakker ofte er forsinkede, ' +
-    'beskadigede eller aldrig dukker op. Og kundeservice er aldrig til at komme i kontakt med, ' +
-    'hvor man skal tvinges gennem en ChatBot for at vente flere timer på et menneske, ' +
-    'der aldrig kan hjælpe. Den danske stat ejer 40% af PostNord gennem transportministeriet. ' +
+    'levere pakker eller kommunikere med sine kunder. Den danske stat ejer 40% af PostNord gennem transportministeriet. ' +
     'Enten skal PostNord strammes op og blive den bedste pakkeservice i Danmark eller også ' +
     'skal det sælges så hurtigt som muligt.'
   ),
@@ -56,9 +51,9 @@ export const reasons: Reason[] = [
 ];
 
 export const casesSection = {
-  heading: "Virkelige oplevelser",
+  heading: "Virkelige oplevelser fra FB-gruppen",
   /** How many stories to show at once (first N in items). */
-  visibleCount: 3,
+  visibleCount: 6,
   items: [
   {
     src: "/Screenshot_20260605_084710.png",
@@ -101,7 +96,50 @@ export const mediaSection = {
   ] as CaseScreenshot[],
 };
 
+export interface TallyForm {
+  label: string;
+  /** Tally embed URL, e.g. https://tally.so/embed/abc123 */
+  embedUrl: string;
+}
+
+export const organizationSection = {
+  heading: "Om foreningen og hjemmesiden og spørgeskemaet",
+  body: `
+    Jeg startede dette projekt, fordi PostNord aldrig en eneste gang har kunnet
+    levere en pakke til min fritidsbolig, men GLS lykkes med det perfekt og meget
+    hurtigt hver eneste gang.
+
+    Da jeg så bestilte en pakke fra Tyskland, så brugte DPD ikke mere end 31 timer
+    på at få pakken på 21kg fra Hagen til Brøndby. En distance på næsten 700km.
+
+    Men det ser ud til at det vil tage PostNord 8 dage (192 timer) at transportere
+    den de sidste 25 kilometer. Jeg skriver "ser ud til", fordi de har allerede
+    lovet at levere den tre gange uden jeg har set så meget som en flig af pakketape, så det er meget sandsynligt at leveringstiden
+    bliver længere. Og kundeservice havde intet at sige om sagen efter,
+    jeg havde ventet i kø i 4 timer for at høre noget.
+
+    Fortæl mig igen hvorfor PostNord er 25% dyrere end konkurrenterne?.
+
+    Jeg har lavet et spørgeskema, hvor jeg samler empiri og data på folks oplevelser med PostNord.
+    Jeg kan ikke sige præcist, hvad det bliver til, men jeg tror på videnskaben i at billedet viser sig, når man først har samlet dataen.
+
+    Nedenunder det kan du melde dig ind som gratismedlem af foreningen.
+    
+  `.trim(),
+  forms: [
+    {
+      label: "Spørgeskema",
+      embedUrl: "https://tally.so/embed/MeV120?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1",
+    },
+    {
+      label: "Rekruttering",
+      embedUrl: "https://tally.so/embed/eqzRDk?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1",
+    },
+  ] as TallyForm[],
+};
+
 export const statsSection = {
+  enabled: false,
   heading: "Nøgletal",
   imageSrc: "/pakkebud.jpg",
   imageAlt: "Pakkebud",
@@ -113,13 +151,10 @@ export const statsSection = {
 };
 
 export const contactSection = {
-  heading: "Tak!",
-  aboutLabel: "Om kampagnen",
+  heading: "Tak for din interesse!",
   lines: [
-    "Skriv hvem der står bag kampagnen.",
-    "Kontaktadresse eller by.",
-    "din@email.dk",
-    "website.dk",
+    "Emil Halkjær From",
+    "emil@emilfrom.com",
   ],
-  website: "website.dk",
+  website: "emilfrom.com",
 };
