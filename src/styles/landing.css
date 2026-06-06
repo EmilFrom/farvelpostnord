@@ -64,6 +64,57 @@
   white-space: pre-line;
 }
 
+/* ─── Report section ─── */
+.report-section {
+  background: var(--brand-white);
+  padding: clamp(2rem, 5vw, 3.5rem) clamp(1.25rem, 4vw, 3.5rem)
+    clamp(2.5rem, 6vw, 4rem);
+  border-top: 1px solid #e8eef2;
+}
+
+.report-wrap {
+  max-width: 72rem;
+  margin: 0 auto;
+}
+
+.report-heading {
+  font-size: clamp(1.25rem, 2.2vw, 1.8rem);
+  font-weight: 700;
+  color: var(--brand-blue);
+  margin: 0 0 clamp(1rem, 2.5vw, 1.6rem);
+}
+
+.report-charts {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.report-chart-card {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.75rem, 2vw, 1rem);
+  background: var(--brand-white);
+  border: 1px solid #d9e5ec;
+  border-radius: 1rem;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  box-shadow: 0 10px 24px rgba(10, 31, 68, 0.09);
+}
+
+.report-chart-heading {
+  font-size: clamp(1.1rem, 2vw, 1.45rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--brand-blue);
+  margin: 0;
+  text-align: center;
+}
+
+.report-chart-canvas-wrap {
+  position: relative;
+  height: clamp(16rem, 40vw, 22rem);
+}
+
 /* ─── Cases ─── */
 .cases-section {
   background: var(--brand-sky);

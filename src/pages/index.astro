@@ -2,8 +2,10 @@
 import Layout from "../layouts/Layout.astro";
 import ImageLightbox from "../components/ImageLightbox.astro";
 import LightboxImage from "../components/LightboxImage.astro";
+import ReportChart from "../components/ReportChart.astro";
 import {
   hero,
+  reportSection,
   casesSection,
   mediaSection,
   reasons,
@@ -37,6 +39,35 @@ const visibleCases = casesSection.items.slice(0, casesSection.visibleCount);
         </div>
       </div>
     </header>
+
+    <section class="report-section" aria-labelledby="report-heading">
+      <div class="report-wrap">
+        <h2 id="report-heading" class="report-heading">
+          {reportSection.heading}
+        </h2>
+        <div class="report-charts">
+          {
+            reportSection.charts.map((chart, index) => (
+              <ReportChart
+                id={`report-chart-${index}`}
+                heading={chart.heading}
+                yAxisLabel={chart.yAxisLabel}
+                yAxisLabelRight={chart.yAxisLabelRight}
+                valueSuffix={chart.valueSuffix}
+                beginAtZero={chart.beginAtZero}
+                chartType={chart.chartType}
+                labels={chart.series[0].data.map((point) => String(point.year))}
+                series={chart.series.map((entry) => ({
+                  label: entry.label,
+                  values: entry.data.map((point) => point.value),
+                  yAxis: entry.yAxis,
+                }))}
+              />
+            ))
+          }
+        </div>
+      </div>
+    </section>
 
     <section class="cases-section" aria-labelledby="cases-heading">
       <div class="cases-wrap">

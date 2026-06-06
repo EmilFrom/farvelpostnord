@@ -1,0 +1,248 @@
+---
+interface ChartSeriesProp {
+  label: string;
+  values: number[];
+  yAxis?: "left" | "right";
+}
+
+interface Props {
+  id: string;
+  heading: string;
+  yAxisLabel: string;
+  yAxisLabelRight?: string;
+  valueSuffix: string;
+  beginAtZero?: boolean;
+  chartType?: "line" | "bar";
+  labels: string[];
+  series: ChartSeriesProp[];
+}
+
+const {
+  id,
+  heading,
+  yAxisLabel,
+  yAxisLabelRight,
+  valueSuffix,
+  beginAtZero = true,
+  chartType = "line",
+  labels,
+  series,
+} = Astro.props;
+---
+
+<article class="report-chart-card">
+  <h3 class="report-chart-heading">{heading}</h3>
+  <div class="report-chart-canvas-wrap">
+    <canvas
+      id={id}
+      class="report-chart-canvas"
+      data-labels={JSON.stringify(labels)}
+      data-series={JSON.stringify(series)}
+      data-y-axis-label={yAxisLabel}
+      data-y-axis-label-right={yAxisLabelRight ?? ""}
+      data-value-suffix={valueSuffix}
+      data-begin-at-zero={beginAtZero ? "true" : "false"}
+      data-chart-type={chartType}
+      role="img"
+      aria-label={`${heading}: ${yAxisLabel}`}
+    ></canvas>
+  </div>
+</article>
+
+<script>
+  import {
+    Chart,
+    LineController,
+    LineElement,
+    PointElement,
+    BarController,
+    BarElement,
+    LinearScale,
+    CategoryScale,
+    Tooltip,
+    Legend,
+    Filler,
+  } from "chart.js";
+
+  Chart.register(
+    LineController,
+    LineElement,
+    PointElement,
+    BarController,
+    BarElement,
+    LinearScale,
+    CategoryScale,
+    Tooltip,
+    Legend,
+    Filler,
+  );
+
+  const palette = [
+    {
+      border: "#009fda",
+      fill: "rgba(0, 159, 218, 0.12)",
+      point: "#005b82",
+    },
+    {
+      border: "#005b82",
+      fill: "rgba(0, 91, 130, 0.12)",
+      point: "#0a1f44",
+    },
+    {
+      border: "#0a1f44",
+      fill: "rgba(10, 31, 68, 0.12)",
+      point: "#0a1f44",
+    },
+  ];
+
+  function initReportCharts() {
+    document.querySelectorAll(".report-chart-canvas").forEach((canvas) => {
+      if (!(canvas instanceof HTMLCanvasElement)) return;
+      if (canvas.dataset.chartInit) return;
+      canvas.dataset.chartInit = "true";
+
+      const labels = JSON.parse(canvas.dataset.labels ?? "[]") as string[];
+      const series = JSON.parse(canvas.dataset.series ?? "[]") as {
+        label: string;
+        values: number[];
+        yAxis?: "left" | "right";
+      }[];
+      const yAxisLabel = canvas.dataset.yAxisLabel ?? "";
+      const yAxisLabelRight = canvas.dataset.yAxisLabelRight ?? "";
+      const valueSuffix = canvas.dataset.valueSuffix ?? "";
+      const beginAtZero = canvas.dataset.beginAtZero !== "false";
+      const chartType = canvas.dataset.chartType === "bar" ? "bar" : "line";
+      const multiSeries = series.length > 1;
+      const hasDualAxis = series.some((entry) => entry.yAxis === "right");
+
+      const brandBlue = "#005b82";
+      const brandCyan = "#009fda";
+      const brandInk = "#1b2a4a";
+
+      const datasets = series.map((entry, index) => {
+        const colors = palette[index % palette.length];
+        const yAxisID = entry.yAxis === "right" ? "y1" : "y";
+        if (chartType === "bar") {
+          const hasNegative = entry.values.some((value) => value < 0);
+          const barColors = hasNegative
+            ? entry.values.map((value) =>
+                value < 0 ? "#0a1f44" : "#009fda",
+              )
+            : colors.border;
+          return {
+            label: entry.label,
+            data: entry.values,
+            yAxisID,
+            backgroundColor: barColors,
+            borderColor: barColors,
+            borderWidth: 0,
+            borderRadius: 4,
+          };
+        }
+        return {
+          label: entry.label,
+          data: entry.values,
+          yAxisID,
+          borderColor: colors.border,
+          backgroundColor: multiSeries ? "transparent" : colors.fill,
+          borderWidth: 2.5,
+          pointBackgroundColor: colors.point,
+          pointBorderColor: "#ffffff",
+          pointBorderWidth: 2,
+          pointRadius: 4,
+          pointHoverRadius: 6,
+          fill: !multiSeries,
+          tension: 0.15,
+        };
+      });
+
+      const axisTitleFont = {
+        weight: "600" as const,
+        family: "Inter, system-ui, sans-serif",
+      };
+
+      const tickFont = { family: "Inter, system-ui, sans-serif" };
+
+      new Chart(canvas, {
+        type: chartType,
+        data: { labels, datasets },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          interaction: { mode: "index", intersect: false },
+          plugins: {
+            legend: {
+              display: multiSeries,
+              position: "bottom",
+              labels: {
+                color: brandInk,
+                font: tickFont,
+                boxWidth: 12,
+                padding: 16,
+              },
+            },
+            tooltip: {
+              callbacks: {
+                label: (ctx) => {
+                  const seriesLabel = ctx.dataset.label
+                    ? `${ctx.dataset.label}: `
+                    : "";
+                  return `${seriesLabel}${ctx.parsed.y.toLocaleString("da-DK")} ${valueSuffix}`;
+                },
+              },
+            },
+          },
+          scales: {
+            x: {
+              grid: { display: false },
+              ticks: {
+                color: brandInk,
+                font: tickFont,
+              },
+            },
+            y: {
+              position: "left",
+              beginAtZero,
+              ticks: {
+                color: brandCyan,
+                font: tickFont,
+                callback: (value) => Number(value).toLocaleString("da-DK"),
+              },
+              grid: { color: "rgba(27, 42, 74, 0.08)" },
+              title: {
+                display: true,
+                text: yAxisLabel,
+                color: brandCyan,
+                font: axisTitleFont,
+              },
+            },
+            ...(hasDualAxis
+              ? {
+                  y1: {
+                    position: "right" as const,
+                    beginAtZero: true,
+                    ticks: {
+                      color: brandBlue,
+                      font: tickFont,
+                      callback: (value: string | number) =>
+                        Number(value).toLocaleString("da-DK"),
+                    },
+                    grid: { drawOnChartArea: false },
+                    title: {
+                      display: true,
+                      text: yAxisLabelRight,
+                      color: brandBlue,
+                      font: axisTitleFont,
+                    },
+                  },
+                }
+              : {}),
+          },
+        },
+      });
+    });
+  }
+
+  initReportCharts();
+  document.addEventListener("astro:page-load", initReportCharts);
+</script>

@@ -19,13 +19,35 @@ export interface CaseScreenshot {
   alt: string;
 }
 
+export interface ReportChartDataPoint {
+  year: number;
+  value: number;
+}
+
+export interface ReportChartSeries {
+  label: string;
+  data: ReportChartDataPoint[];
+  yAxis?: "left" | "right";
+}
+
+export interface ReportChart {
+  heading: string;
+  yAxisLabel: string;
+  yAxisLabelRight?: string;
+  valueSuffix: string;
+  beginAtZero?: boolean;
+  chartType?: "line" | "bar";
+  series: ReportChartSeries[];
+}
+
 export const hero = {
   title: "Farvel PostNord!",
   body: (
     'Facebook-gruppen "Kom Nu PostNord" vidner om et PostNord, der er ude af stand til at ' +
     'levere pakker eller kommunikere med sine kunder. Den danske stat ejer 40% af PostNord gennem transportministeriet. ' +
     'Enten skal PostNord strammes op og blive den bedste pakkeservice i Danmark eller også ' +
-    'skal det sælges så hurtigt som muligt.'
+    'skal det sælges så hurtigt som muligt.' +
+    'Den danske stat solgte Dong og Statens Serum Institut (og langt flere i det sidste årtusind) så fortsætter vi kursen og sælger PostNord.'
   ),
 };
 
@@ -49,6 +71,162 @@ export const reasons: Reason[] = [
     body: "PostNord koster 25% mere end konkurrenterne for almindelig pakkepost. Det er flere penge for en ringere service.",
   },
 ];
+
+export const reportSection = {
+  heading: "2025: Året hvor PostNord mistede sin eksistensberettigelse",
+  charts: [
+    {
+      heading: "En gigant der svinder ind",
+      yAxisLabel: "Gennemsnitligt antal heltidsbeskæftigede",
+      valueSuffix: "ansatte",
+      beginAtZero: false,
+      series: [
+        {
+          label: "Heltidsbeskæftigede",
+          data: [
+            { year: 2013, value: 12_180 },
+            { year: 2014, value: 11_780 },
+            { year: 2015, value: 10_911 },
+            { year: 2016, value: 10_046 },
+            { year: 2017, value: 8_480 },
+            { year: 2018, value: 7_157 },
+            { year: 2019, value: 6_315 },
+            { year: 2020, value: 6_246 },
+            { year: 2021, value: 6_388 },
+            { year: 2022, value: 5_792 },
+            { year: 2023, value: 5_198 },
+            { year: 2024, value: 3_033 },
+            { year: 2025, value: 2_886 },
+          ],
+        },
+      ],
+    },
+    {
+      heading: "Gældsudvikling",
+      yAxisLabel: "mio. kr.",
+      valueSuffix: "mio. kr.",
+      series: [
+        {
+          label: "Anden langfristet gæld i alt",
+          data: [
+            { year: 2012, value: 89 },
+            { year: 2013, value: 89 },
+            { year: 2014, value: 93 },
+            { year: 2015, value: 198 },
+            { year: 2016, value: 167 },
+            { year: 2017, value: 338 },
+            { year: 2018, value: 1_391 },
+            { year: 2019, value: 927 },
+            { year: 2020, value: 364 },
+            { year: 2021, value: 81 },
+            { year: 2022, value: 38 },
+            { year: 2023, value: 19 },
+            { year: 2024, value: 11 },
+            { year: 2025, value: 304 },
+          ],
+        },
+        {
+          label: "Anden gæld i alt",
+          data: [
+            { year: 2012, value: 1_371 },
+            { year: 2013, value: 1_334 },
+            { year: 2014, value: 1_212 },
+            { year: 2015, value: 1_155 },
+            { year: 2016, value: 1_129 },
+            { year: 2017, value: 1_025 },
+            { year: 2018, value: 1_178 },
+            { year: 2019, value: 1_090 },
+            { year: 2020, value: 1_398 },
+            { year: 2021, value: 869 },
+            { year: 2022, value: 430 },
+            { year: 2023, value: 427 },
+            { year: 2024, value: 394 },
+            { year: 2025, value: 525 },
+          ],
+        },
+      ],
+    },
+    {
+      heading: "Likvider ultimo per år",
+      yAxisLabel: "mio. kr.",
+      valueSuffix: "mio. kr.",
+      chartType: "bar",
+      series: [
+        {
+          label: "Likvider ultimo",
+          data: [
+            { year: 2012, value: 103 },
+            { year: 2013, value: 126 },
+            { year: 2014, value: 64 },
+            { year: 2015, value: 28 },
+            { year: 2016, value: 35 },
+            { year: 2017, value: 29 },
+            { year: 2018, value: 12 },
+            { year: 2019, value: 24 },
+            { year: 2020, value: 27 },
+            { year: 2021, value: 10 },
+            { year: 2022, value: 12 },
+            { year: 2023, value: 5 },
+            { year: 2024, value: 39 },
+            { year: 2025, value: 4 },
+          ],
+        },
+      ],
+    },
+    {
+      heading: "Omsætning",
+      yAxisLabel: "mio. kr.",
+      valueSuffix: "mio. kr.",
+      chartType: "bar",
+      series: [
+        {
+          label: "Omsætning",
+          data: [
+            { year: 2013, value: 8_068 },
+            { year: 2014, value: 7_571 },
+            { year: 2015, value: 7_204 },
+            { year: 2016, value: 6_641 },
+            { year: 2017, value: 5_699 },
+            { year: 2018, value: 4_936 },
+            { year: 2019, value: 4_734 },
+            { year: 2020, value: 4_863 },
+            { year: 2021, value: 5_290 },
+            { year: 2022, value: 4_965 },
+            { year: 2023, value: 4_838 },
+            { year: 2024, value: 3_448 },
+            { year: 2025, value: 3_659 },
+          ],
+        },
+      ],
+    },
+    {
+      heading: "Årets resultat",
+      yAxisLabel: "mio. kr.",
+      valueSuffix: "mio. kr.",
+      chartType: "bar",
+      series: [
+        {
+          label: "Årets resultat",
+          data: [
+            { year: 2013, value: -60 },
+            { year: 2014, value: -183 },
+            { year: 2015, value: -230 },
+            { year: 2016, value: -1_372 },
+            { year: 2017, value: -747 },
+            { year: 2018, value: -1_092 },
+            { year: 2019, value: -253 },
+            { year: 2020, value: -27 },
+            { year: 2021, value: 165 },
+            { year: 2022, value: -121 },
+            { year: 2023, value: -426 },
+            { year: 2024, value: 10 },
+            { year: 2025, value: -15 },
+          ],
+        },
+      ],
+    },
+  ] as ReportChart[],
+};
 
 export const casesSection = {
   heading: "Virkelige oplevelser fra FB-gruppen",
