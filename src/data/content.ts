@@ -20,7 +20,7 @@ export interface CaseScreenshot {
 }
 
 export const hero = {
-  title: "Kom Nu PostNord!",
+  title: "Farvel PostNord!",
   body: (
     'Facebook-gruppen "Kom Nu PostNord" vidner om et PostNord, der er ude af stand til at ' +
     'levere pakker eller kommunikere med sine kunder. Den danske stat ejer 40% af PostNord gennem transportministeriet. ' +
