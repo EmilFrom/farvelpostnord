@@ -21,20 +21,29 @@ const visibleCases = casesSection.items.slice(0, casesSection.visibleCount);
 <Layout title="Kom Nu PostNord" lang="da">
   <div class="page">
     <header class="hero">
-      <div class="hero-cyan">
-        <svg
-          class="hero-curve"
-          viewBox="0 0 1440 200"
-          xmlns="http://www.w3.org/2000/svg"
-          preserveAspectRatio="none"
-          aria-hidden="true"
-        >
-          <ellipse cx="720" cy="300" rx="820" ry="200" fill="var(--brand-cyan)" />
-        </svg>
-        <div class="hero-body">
-          <div class="hero-content">
-            <h1 class="hero-title">{hero.title}</h1>
-            <p class="hero-intro">{hero.body}</p>
+      <div class="hero-visuals">
+        {
+          hero.images.map((image) => (
+            <img
+              src={image.src}
+              alt={image.alt}
+              loading="eager"
+              decoding="async"
+            />
+          ))
+        }
+      </div>
+      <div class="hero-panel">
+        <div class="hero-content">
+          <h1 class="hero-title">{hero.title}</h1>
+          <p class="hero-hook">{hero.body}</p>
+          <div class="hero-actions">
+            <a class="hero-cta hero-cta--primary" href={hero.primaryCta.href}>
+              {hero.primaryCta.label}
+            </a>
+            <a class="hero-cta hero-cta--secondary" href={hero.secondaryCta.href}>
+              {hero.secondaryCta.label}
+            </a>
           </div>
         </div>
       </div>
@@ -135,7 +144,10 @@ const visibleCases = casesSection.items.slice(0, casesSection.visibleCount);
         <div class="org-forms">
           {
             organizationSection.forms.map((form) => (
-              <div class="org-form">
+              <div
+                class="org-form"
+                id={form.label === "Spørgeskema" ? "sporgeskema" : undefined}
+              >
                 <h3 class="org-form-label">{form.label}</h3>
                 <iframe
                   data-tally-src={form.embedUrl}

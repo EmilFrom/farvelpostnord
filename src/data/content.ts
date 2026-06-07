@@ -42,13 +42,26 @@ export interface ReportChart {
 
 export const hero = {
   title: "Farvel PostNord!",
-  body: (
-    'Facebook-gruppen "Kom Nu PostNord" vidner om et PostNord, der er ude af stand til at ' +
-    'levere pakker eller kommunikere med sine kunder. Den danske stat ejer 40% af PostNord gennem transportministeriet. ' +
-    'Enten skal PostNord strammes op og blive den bedste pakkeservice i Danmark eller også ' +
-    'skal det sælges så hurtigt som muligt.' +
-    'Den danske stat solgte Dong og Statens Serum Institut (og langt flere i det sidste årtusind) så fortsætter vi kursen og sælger PostNord.'
-  ),
+  images: [
+    {
+      src: "/kundeservice.png",
+      alt: "PostNord chatbot: kundeservice er for travlt til at hjælpe",
+    },
+    {
+      src: "/delivery_attempt.png",
+      alt: "PostNord besked: vi har forsøgt at levere, pakken sendes til afhentningssted",
+    },
+  ],
+  body:
+    "Kender du følelsen? Robotten der ikke kan hjælpe. Beskeden om at du ikke var hjemme — mens du sad i sofaen. Del din historie, og se hvorfor staten bør sælge sin andel.",
+  primaryCta: {
+    label: "Del din historie (Tager 2 min) 👇",
+    href: "#org-heading",
+  },
+  secondaryCta: {
+    label: "Se de rystende tal",
+    href: "#report-heading",
+  },
 };
 
 export const reasons: Reason[] = [
@@ -221,6 +234,32 @@ export const reportSection = {
             { year: 2023, value: -426 },
             { year: 2024, value: 10 },
             { year: 2025, value: -15 },
+          ],
+        },
+      ],
+    },
+    {
+      heading: "Udgifter til skat af årets resultat",
+      yAxisLabel: "mio. kr.",
+      valueSuffix: "mio. kr.",
+      chartType: "bar",
+      series: [
+        {
+          label: "Skat af årets resultat",
+          data: [
+            { year: 2013, value: 56 },
+            { year: 2014, value: 75 },
+            { year: 2015, value: 54 },
+            { year: 2016, value: -150 },
+            { year: 2017, value: 48 },
+            { year: 2018, value: 10 },
+            { year: 2019, value: -12 },
+            { year: 2020, value: 1 },
+            { year: 2021, value: 11 },
+            { year: 2022, value: 5 },
+            { year: 2023, value: 9 },
+            { year: 2024, value: 9 },
+            { year: 2025, value: 10 },
           ],
         },
       ],
