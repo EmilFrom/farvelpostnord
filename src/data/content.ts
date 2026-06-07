@@ -56,7 +56,7 @@ export const hero = {
     "Kender du følelsen? Robotten der ikke kan hjælpe. Beskeden om at du ikke var hjemme — mens du sad i sofaen. Del din historie, og se hvorfor staten bør sælge sin andel.",
   primaryCta: {
     label: "Del din historie (Tager 2 min) 👇",
-    href: "#org-heading",
+    href: "https://tally.so/r/MeV120",
   },
   secondaryCta: {
     label: "Se de rystende tal",
